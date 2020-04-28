@@ -12,7 +12,7 @@ const INITIAL_ORDER_INFO = {
         country: ''
     },
     orderInfo: []
-};
+}
 
 const INITIAL_STATE = JSON.parse(localStorage.getItem('order')) || INITIAL_ORDER_INFO;
 
