@@ -1,0 +1,540 @@
+.post {
+    &__image-box {
+        position: relative;
+        cursor: pointer;
+        border-radius: 1.2rem;
+        overflow: hidden;
+        margin-bottom: 2.8rem;
+
+        &:after {
+            @include afterBefore();
+            @include transition(0.2s);
+        }
+
+        &:hover:after {
+            background-color: rgba(43, 52, 69, 0.5);
+        }
+
+        .fa-plus-square {
+            @include absCenter();
+            width: 5rem;
+            height: 5rem;
+            font-size: 3rem;
+            text-align: center;
+            line-height: 5rem;
+            color: $color-white;
+            z-index: 100;
+            @include hideElm();
+
+        }
+
+        &:hover .fa-plus-square {
+            margin-left: -2.5rem;
+            margin-top: -2.5rem;
+            @include animation(scaleAnimation 0.2s ease forwards);
+
+        }
+
+        .post__caption {
+            font-size: 1.4rem;
+            color: $color-white;
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            @include transform(translateX(-50%));
+            z-index: 100;
+            text-align: center;
+            width: 100%;
+            display: block;
+            opacity: 0;
+            @include transition(0.2s);
+        }
+
+        &:hover .post__caption {
+            opacity: 1;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        vertical-align: middle;
+    }
+
+    &__desc--big {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        font-weight: 400;
+
+        &-active {
+            box-shadow: 0 0.125rem 0.3rem -0.0625rem rgba(0, 0, 0, 0.03), 0 0.275rem 0.75rem -0.0625rem rgba(0, 0, 0, 0.06) !important;
+            padding: 3rem 1.6rem 1.6rem 1.6rem;
+            position: relative;
+            margin: 3rem 0 4rem 0;
+        }
+    }
+
+    &__qoute {
+        font-size: 3rem;
+        font-weight: 700;
+        position: absolute;
+        top: -1rem;
+        left: 2rem;
+        box-shadow: 0 0.5rem 0.575rem -0.25rem rgba(254, 105, 106, 0.75);
+        width: 3rem;
+        height: 3rem;
+        line-height: 4rem;
+        border-radius: 0.2rem;
+        text-align: center;
+        background-color: $color-red;
+        color: $color-white;
+    }
+
+    &__share {
+        @include dFlex(flex-end);
+
+        @include respond(phone) {
+            float: left;
+            margin-top: 1.5rem;
+        }
+
+        &-item {
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: 0.8rem;
+            }
+        }
+
+        &-text {
+            font-size: 1.6rem;
+            color: $color-grey-dark-1;
+            display: inline-block;
+            padding-right: 1rem;
+        }
+
+        .fab {
+            font-size: 1.4rem;
+            width: 3.6rem;
+            height: 3.6rem;
+            line-height: 3.6rem;
+            text-align: center;
+            border-radius: 0.2rem;
+            background-color: #f3f5f9;
+            color: $color-grey-dark-2;
+            opacity: .9;
+        }
+
+        .fa {
+            &-facebook-f:hover {
+                color: $color-white;
+                background-color: #3b5998;
+                @include transition();
+                box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(59, 89, 152, 0.9);
+            }
+
+            &-twitter:hover {
+                color: $color-white;
+                background-color: #1da1f2;
+                @include transition();
+                box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(29, 161, 242, 0.9);
+            }
+
+            &-pinterest-p:hover {
+                color: $color-white;
+                background-color: #bd081c;
+                @include transition();
+                box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(189, 8, 28, 0.9);
+            }
+        }
+    }
+
+    &__action {
+        display: flex;
+        justify-content: center;
+        padding: 2rem 1.6rem;
+        cursor: pointer;
+
+        @include respond(phone) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &:hover {
+
+            span,
+            p {
+                color: $color-secondary;
+            }
+        }
+
+        .post-control {
+            font-size: 3rem;
+            color: #4b566b;
+            text-align: center;
+            width: 2rem;
+            height: 2rem;
+            line-height: 2rem;
+
+            @include respond(phone) {
+                line-height: 1.5rem;
+            }
+        }
+
+        &-text {
+            font-size: 1.7rem;
+            color: #4b566b;
+
+            @include respond(phone) {
+                font-size: 1.5rem;
+                white-space: nowrap;
+            }
+        }
+
+        .fa-list-ul {
+            font-size: 1.4rem;
+            color: #4b566b;
+            padding: 0.2rem 0.8rem 0 0;
+            display: inline-block;
+            line-height: 2.1rem;
+        }
+    }
+
+    &__tags {
+        .btn--outline--small:first-child {
+            margin-right: 0.6rem;
+        }
+    }
+
+    &__time-text {
+        font-size: 1.4rem;
+        color: $color-grey-dark-1;
+    }
+
+    &-comment {
+        &__item {
+            display: flex;
+            padding: 3rem 0 2rem 0;
+            border-top: 1px solid #f4f4f4;
+        }
+
+        &__item--dad:first-of-type {
+            border: 0 !important;
+        }
+
+        &__item--child {
+            .post-comment__details {
+                padding-bottom: 0;
+            }
+        }
+
+        &__details {
+            padding-bottom: 2.8rem;
+        }
+
+        &__inside {
+            padding-top: 2.8rem;
+            border-top: 1px solid #f4f4f4;
+
+            >div {
+                padding: 0;
+            }
+        }
+
+        &__heading {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: $color-grey-dark-2;
+        }
+
+        &__amount {
+            padding: 0.3rem 1rem;
+            background-color: #f3f5f9;
+            color: #4b566b;
+            font-size: 1.4rem;
+            border-radius: 0.4rem;
+            margin-left: 0.6rem;
+            vertical-align: middle;
+        }
+
+        &__image {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            margin-right: 1.6rem;
+            object-fit: cover;
+        }
+
+        &__title {
+            font-size: 1.6rem;
+            color: $color-grey-dark-2;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        &__desc {
+            font-size: 1.6rem;
+            color: $color-grey-dark-1;
+        }
+
+        &__reply {
+            float: right;
+            font-size: 1.3rem;
+            color: $color-grey-dark-1;
+            cursor: pointer;
+
+            i {
+                padding-right: 0.4rem;
+            }
+        }
+
+        &__time {
+            font-size: 1.4rem;
+            color: $color-grey-dark-1;
+            margin-top: 0.8rem;
+            display: inline-block;
+
+            .far {
+                font-size: 1.4rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        &__form {
+            box-shadow: 0 0.25rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.03), 0 0.275rem 1.25rem -0.0625rem rgba(0, 0, 0, 0.05) !important;
+            padding: 2rem 1.6rem 3rem 1.6rem;
+            margin-top: 2rem;
+            display: flex;
+
+            form,
+            textarea {
+                width: 100%;
+            }
+
+            .btn {
+                margin-top: 1.5rem;
+            }
+        }
+
+        &__box-text {
+            width: 100%;
+        }
+    }
+
+    &__heading {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__trending {
+        &-list {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $color-grey-light-4;
+        }
+
+        &-item {
+            margin-bottom: 0.6rem;
+            @include dFlex();
+
+            .post__title {
+                font-size: 1.4rem;
+                font-weight: 700;
+                @include hideText();
+
+            }
+        }
+
+        &-image {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 0.5rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__desc--muted {
+        font-size: 1.4rem;
+        color: $color-grey-dark-1;
+        margin-top: 0.3rem;
+    }
+
+    &__tags {
+        &-box {
+            padding-top: 2rem;
+
+        }
+
+        .btn {
+            margin: 0 0.4rem 0.4rem 0;
+        }
+    }
+
+    &__banner {
+        position: relative;
+
+        &-text {
+            width: 100%;
+            @include absCenter();
+
+        }
+
+        .post__heading {
+            margin-bottom: 0.5rem;
+        }
+
+        &-desc {
+            font-size: 1.6rem;
+            color: $color-grey-dark-1;
+        }
+
+        .btn {
+            @include btnShadow(rgb(0, 99, 209));
+            padding: 1rem 1.6rem;
+            margin-top: 2rem;
+        }
+    }
+
+    &-content {
+
+        .col {
+            position: relative;
+        }
+    }
+
+    &__preview {
+        &-image {
+            width: 6rem;
+            height: 6rem;
+            object-fit: cover;
+        }
+
+        &-box {
+            border: 1px solid $color-grey-light-4;
+            position: absolute;
+            top: -1.5rem;
+            left: 0;
+            @include transform(translateY(-100%));
+            z-index: 100;
+            @include dFlex();
+            background-color: $color-white;
+            box-shadow: 0 0.125rem 0.3rem -0.0625rem rgba(0, 0, 0, 0.03), 0 0.275rem 0.75rem -0.0625rem rgba(0, 0, 0, 0.06) !important;
+            padding: 1.2rem;
+            border-radius: 0.4rem;
+
+            @include respond(tab-land-medium) {
+                width: 120%;
+            }
+
+            &--prev {
+                @include respond(tab-land-medium) {
+                    left: 0;
+                }
+            }
+
+            &--next {
+                @include respond(tab-land-medium) {
+                    right: 0;
+                    left: auto;
+                }
+            }
+
+            @include respond(tab-port) {
+                display: none;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -1rem;
+                @include transform(translateX(-50%) rotate(45deg));
+                border-right: 1px solid $color-grey-light-4;
+                border-bottom: 1px solid $color-grey-light-4;
+                width: 2rem;
+                height: 2rem;
+                background-color: $color-white;
+            }
+        }
+
+        &-text {
+            margin-left: 1rem;
+        }
+
+        &-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: $color-grey-dark-2;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        &-desc {
+            font-size: 1.4rem;
+            color: $color-grey-dark-1;
+        }
+    }
+
+}
+
+.row--control {
+    border: 1px solid $color-grey-light-4;
+    border-radius: 0.4rem;
+
+    .col {
+
+        &:not(:last-child) {
+            border-right: 1px solid $color-grey-light-4;
+        }
+
+        margin: 0 !important;
+        width: 33.333%;
+
+        @include respond(phone) {
+            width: 33.333% !important;
+        }
+
+    }
+}
+
+#section-post-details {
+    .u-padding-left-regular {
+        @include respond(tab-land) {
+            display: none;
+        }
+    }
+}
+
+#section-post-related {
+    .carousel__inner-slide {
+        padding: 0 1rem;
+    }
+
+    .control-arrow {
+        margin-top: -10rem;
+    }
+
+    .col {
+        width: 100%;
+    }
+
+    .slick-list {
+        margin: 0 -1rem;
+    }
+
+    .post {
+        padding: 0 1rem;
+
+        &__box-image {
+            border-radius: 0.4rem;
+            overflow: hidden;
+        }
+
+        &__time {
+            padding-top: 1rem;
+        }
+
+        &__title {
+            margin: 0.6rem 0 0.8rem 0 !important;
+            @include hideText();
+        }
+    }
+}

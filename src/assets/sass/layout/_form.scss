@@ -1,0 +1,197 @@
+.form {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    i {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1.6rem 2rem;
+        background-color: $color-secondary;
+        font-size: 1.6rem;
+        color: $color-white;
+        border-radius: 0 0.4rem 0.4rem 0;
+        cursor: pointer;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 1.4rem 1.6rem;
+        border-radius: 0.4rem 0 0 0.4rem;
+        border: 1px solid $color-grey-light-2;
+        font-weight: 500;
+        font-size: 1.6rem;
+        color: $color-grey-dark-2;
+
+        &:focus {
+            border-color: rgba($color: $color-secondary, $alpha: 0.2);
+            background-color: $color-white;
+            box-shadow: 0 0 0 0 transparent, 0 0.375rem 0.625rem -0.3125rem rgba(105, 127, 254, 0.15);
+        }
+    }
+
+
+    label {
+        font-size: 1.4rem;
+        color: $color-secondary;
+        font-weight: 600;
+        margin: 1rem 0 1.8rem 0;
+        display: block;
+
+        &[for="firstname"],
+        &[for="lastname"] {
+            margin-top: 0;
+        }
+    }
+
+    &__textarea {
+        font-size: 1.6rem;
+        padding: 1.6rem;
+        border: 1px solid $color-grey-light-2;
+        width: 100%;
+        font-family: 'Open sans';
+        font-weight: 400;
+        color: $color-grey-dark-2;
+    }
+
+    &__content {
+        @include respond(tab-port-min) {
+            @include dFlex();
+        }
+
+        @include respond(tab-port) {
+            text-align: center;
+
+        }
+
+        img {
+            padding-right: 1.6rem;
+
+            @include respond(tab-land) {
+                width: 6rem;
+            }
+        }
+    }
+
+    &__desc {
+        font-size: 1.4rem;
+        color: $color-grey-dark-1;
+        font-weight: 400;
+        display: block;
+
+        @include respond(phone) {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__text {
+        &-error {
+            font-size: 1.5rem;
+            color: #dd2c00;
+            display: block;
+        }
+
+        &-success {
+            font-size: 1.5rem;
+            color: $color-secondary;
+            display: block;
+        }
+    }
+
+    &-save {
+        padding: 2rem 1.8rem 3rem 1.8rem;
+
+        &__title {
+            color: $color-grey-dark-2;
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            display: inline-block;
+            min-width: 9rem;
+            margin-top: 2rem;
+        }
+
+        .form__text-error {
+            margin-bottom: 0.8rem;
+        }
+
+        &__group {
+            display: flex;
+            width: 100%;
+
+            .btn {
+                margin-top: 1rem;
+            }
+
+            &+.btn,
+            &+.btn:hover,
+            &+.btn:focus,
+            &+.btn:active {
+                margin-top: 0;
+                border-radius: 0;
+                padding: 1.2rem 1.8rem;
+            }
+
+            &-variant {
+                div:nth-child(2) {
+                    margin-right: 1.6rem;
+                }
+            }
+        }
+
+        &__select {
+            width: 30rem;
+            @include dFlex();
+            margin-right: 3rem;
+        }
+
+        select {
+            padding: 1rem 1.2rem;
+            font-size: 1.6rem;
+            color: $color-grey-dark-2;
+            border: 1px solid $color-grey-light-4;
+            margin: 1rem 0;
+        }
+
+        &__footer {
+            margin-top: 1rem;
+        }
+
+        .btn {
+
+            &,
+            &:focus {
+                border-radius: 0;
+            }
+
+            &:before {
+                display: none;
+            }
+
+            &:hover {
+                background-color: #025abe;
+            }
+        }
+
+        .btn:disabled {
+            opacity: .6;
+        }
+    }
+
+    &-admin-auth {
+        max-width: 60rem;
+        padding: 0 1.6rem;
+        margin: 20rem auto 0 auto;
+
+        .btn {
+            margin-top: 2.5rem;
+        }
+        .form__text-error {
+            margin-top: 1rem;
+        }
+        label {
+            margin: 2rem 0;
+        }
+    }
+}

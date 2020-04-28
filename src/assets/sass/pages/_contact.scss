@@ -1,0 +1,74 @@
+.wrapper-contact-page {
+    #section-contact {
+        .row {
+            @include respond(tab-port-min) {
+                max-width: 80rem;
+                margin: 0 auto;
+            }
+        }
+
+        .btn {
+            margin-top: 3rem;
+        }
+
+        .form__input {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+#section-contact {
+    .btn {
+        padding: 1.4rem 3rem;
+    }
+
+}
+
+.wrapper-contact-page,
+.wrapper-checkout-page {
+    .main {
+        .form {
+            &__heading {
+                .heading-title--main {
+                    position: relative;
+                    margin-bottom: 2rem;
+
+                    &:after {
+                        content: '...................';
+                        @include absCustom();
+                        @include transform(translateX(-50%));
+                        font-size: 0.6rem;
+                        color: $color-secondary;
+                        margin-top: 2rem;
+                    }
+                }
+            }
+
+            &__desc {
+                color: $color-grey-dark-1;
+                font-size: 1.6rem;
+                margin: 5rem 0 7rem 0;
+            }
+
+            &__input,
+            &__textarea {
+                border-radius: 0;
+                display: block;
+                color: $color-grey-dark-2;
+            }
+
+            .u-d-flex-start {
+                flex-wrap: wrap;
+
+                .form__group {
+                    width: calc(50% - 0.6rem);
+
+                    @include respond(phone) {
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+}

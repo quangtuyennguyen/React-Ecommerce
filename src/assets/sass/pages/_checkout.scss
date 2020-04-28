@@ -1,0 +1,118 @@
+.wrapper-checkout-page,
+.wrapper-order-details {
+    .main .row {
+        @include respond(tab-land-medium-min) {
+            max-width: 131rem;
+            margin: 2rem auto;
+        }
+    }
+
+    .product-table__heading,
+    .product-table__name {
+        padding: 2rem 1.6rem;
+
+    }
+
+    tr:not(:first-child) {
+        .product-table__heading {
+            border: 0;
+        }
+    }
+
+    .product-table__name {
+        font-weight: 400;
+        color: $color-grey-dark-2;
+        padding-right: 2rem;
+
+        p {
+            @include hideText();
+            line-height: 2rem;
+        }
+
+        span {
+            margin-left: 1rem;
+            font-weight: 700;
+            width: 6rem;
+            white-space: nowrap;
+        }
+    }
+}
+
+.wrapper-checkout-page {
+    .product-table__name {
+        display: flex;
+    }
+}
+
+.payment {
+    &-box {
+        margin-top: 2rem;
+        border-radius: 0.4rem;
+        background-color: $color-grey-light-3;
+
+        .btn {
+            margin: 2rem 0rem 2rem 1.6rem !important;
+        }
+    }
+
+    & {
+        padding: 1.6rem;
+        border-bottom: 1px solid $color-grey-light-4;
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        color: $color-grey-dark-2;
+        font-weight: 500;
+        display: block;
+    }
+
+    &__desc {
+        padding: 1.4rem;
+        color: $color-grey-dark-2;
+        position: relative;
+        background: $color-grey-light-4;
+        display: block;
+        width: 100%;
+        font-size: 1.4rem;
+        margin: 3rem 0 2rem 0;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: -0.8rem;
+            left: 3rem;
+            width: 1.6rem;
+            height: 1.6rem;
+            @include transform(rotateZ(45deg));
+            background-color: $color-grey-light-4;
+        }
+    }
+}
+
+#section-checkout {
+    margin-top: 3rem;
+
+    input {
+        @include respond(phone) {
+            margin-bottom: 2rem !important;
+        }
+    }
+
+    .select {
+        @include respond(phone) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    @include respond(tab-land) {
+        .col {
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    .form__text-error {
+        margin-top: 1rem;
+    }
+}

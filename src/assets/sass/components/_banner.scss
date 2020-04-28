@@ -1,0 +1,44 @@
+.banner {
+
+    &__details {
+        padding: 4rem 0 2rem 2rem;
+
+    }
+
+    &__heading--sub {
+        font-size: 1.8rem;
+        color: $color-grey-dark-2;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    &__heading--main {
+        font-size: 2.4rem;
+        color: $color-grey-dark-4;
+        font-weight: 500;
+        margin-bottom: 2.5rem;
+
+        @include respond(tab-land) {
+            margin-bottom: 1.5rem;
+        }
+
+        @include respond(phone) {
+            font-size: 2rem;
+        }
+
+    }
+
+    .btn {
+        padding: 1rem 1.5rem !important;
+        display: inline-block;
+        width: inherit;
+    }
+
+    &__img {
+        float: right;
+        display: block;
+        width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+}

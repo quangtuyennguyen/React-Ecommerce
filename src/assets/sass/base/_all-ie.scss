@@ -1,0 +1,26 @@
+ // IE10+
+ @media screen and (-ms-high-contrast: active),
+ (-ms-high-contrast: none) {
+
+     .row,
+     .row-fluid {
+         display: flex;
+     }
+
+     #section-wrapper-tabs .row,
+     #section-cart .row {
+         display: inherit;
+     }
+ }
+// Edge
+ @supports (-ms-ime-align:auto) {
+    .row,
+     .row-fluid {
+         display: flex;
+     }
+
+     #section-wrapper-tabs .row,
+     #section-cart .row {
+         display: inherit;
+     }
+}

@@ -1,0 +1,30 @@
+.table-admin {
+    &__heading {
+        color: #373f50de;
+
+        &--main {
+            font-size: 2.2rem;
+            font-weight: 500;
+            text-align: left;
+            margin-bottom: 2.6rem;
+        }
+
+        &--sub {
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+
+            a {
+                color: $color-secondary;
+                @include hideText();
+                line-height: 2rem;
+                margin: 0.6rem 0;
+            }
+        }
+    }
+
+    &__image {
+        width: 10rem;
+        height: 8rem;
+        object-fit: contain;
+    }
+}

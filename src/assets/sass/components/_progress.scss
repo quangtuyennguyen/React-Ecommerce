@@ -1,0 +1,42 @@
+.progress {
+    &__rates-box {
+        &:not(:last-child) {
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    &__amount {
+        float: right
+    }
+
+    &__heading {
+        position: relative;
+        top: 1.8rem;
+    }
+
+    .rc-progress-line {
+        margin: 0 3rem 0 4rem;
+    }
+
+    &__rating,
+    &__amount {
+        font-size: 1.5rem;
+        color: $color-grey-dark-1;
+    }
+
+    .fa-star {
+        margin-left: 0.4rem;
+        font-size: 1.4rem;
+        opacity: 0.6;
+    }
+
+    &-title {
+        @include dFlex();
+
+        .fa {
+            margin-left: 0.4rem;
+            font-size: 1.4rem;
+            opacity: 0.8;
+        }
+    }
+}

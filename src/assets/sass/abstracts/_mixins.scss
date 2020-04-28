@@ -1,0 +1,265 @@
+@mixin clearFix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absCenter($value:absolute) {
+    position: $value;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+@mixin absCustom($left: 50%) {
+    position: absolute;
+    top: 50%;
+    left: $left;
+    @include transform(translateY(-50%));
+}
+
+
+@mixin backgroundImgGradient($image, $color, $background-position: center center) {
+    background-image: linear-gradient($color), url($image);
+    background-position: $background-position;
+    background-size: cover;
+}
+
+@mixin btnShadow($color) {
+    box-shadow: 0 0.5rem 1.125rem -0.5rem $color;
+    color: $color-white;
+}
+
+@mixin dFlex($justify-content: inherit, $value: flex) {
+    display: $value;
+    align-items: center;
+    justify-content: $justify-content;
+}
+
+@mixin transform($value) {
+    -ms-transform: $value;
+    -webkit-transform: $value;
+    transform: $value;
+}
+
+@mixin animation($value) {
+    -ms-animation: $value;
+    -moz-animation: $value;
+    -webkit-animation: $value;
+    animation: $value;
+}
+
+@mixin transition($value: 0.3s) {
+    -ms-transition: all $value;
+    -webkit-transition: all $value;
+    transition: all $value;
+}
+
+@mixin hideElm {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@mixin showElm {
+    opacity: 1;
+    visibility: visible;
+}
+
+@mixin afterBefore {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin buttonImage($url) {
+    background-image: $url;
+    width: 100%;
+    height: 100%;
+    display: block !important;
+    background-size: cover;
+}
+
+@mixin hideText($lineClamp : 2) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $lineClamp;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+
+@mixin showSuggestTop($content, $translate: translateX(-50%), $type: suggestMoveInTop) {
+    &:after {
+        font-family: 'Open Sans', sans-serif !important;
+        content: $content;
+        position: absolute;
+        top: -3rem;
+        left: 50%;
+        @include transform($translate);
+        background-color: #333e48;
+        color: #fff;
+        padding: 0.5rem 0.6rem 0.5rem 0.6rem;
+        white-space: nowrap;
+        border-radius: 0.4rem;
+        font-size: 1.2rem;
+        @include animation($type 0.2s forwards);
+        font-weight: 400;
+        line-height: 1rem;
+    }
+}
+
+@mixin showSuggesLeft($content) {
+    &:after {
+        font-family: 'Open Sans', sans-serif !important;
+        content: $content;
+        position: absolute;
+        top: 50%;
+        left: -1rem;
+        @include transform(translateX(-110%) translateY(-50%));
+        background-color: #333e48;
+        color: #fff;
+        white-space: nowrap;
+        border-radius: 0.4rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        @include hideElm();
+    }
+}
+
+@mixin tableTitle($tilte) {
+    content: $tilte;
+    font-size: 1.7rem;
+    color: $color-grey-dark-2;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    position: absolute;
+    left: 1.6rem;
+}
+
+
+@mixin tableFloat() {
+    text-align: right;
+    width: 100%;
+    position: relative;
+    display: block;
+    padding: 2rem;
+}
+
+
+%bgHide {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    cursor: pointer;
+    @include animation(showContent 0.3s forwards);
+
+}
+
+%selectionDark {
+    color: $color-grey-dark-2 !important;
+}
+
+%selectionLight {
+    color: $color-white !important;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media only screen and (max-width: 37.5em) {
+            //600px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==tab-port {
+        @media only screen and (max-width: 56.25em) {
+            //900px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==tab-port-min {
+        @media only screen and (min-width: 56.25em) {
+            //900px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==tab-land {
+        @media only screen and (max-width: 64em) {
+            //1024px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==tab-land-min {
+        @media only screen and (min-width: 64em) {
+            //1024px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==tab-land-medium {
+        @media only screen and (max-width: 80em) {
+            //1280px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==tab-land-medium-min {
+        @media only screen and (min-width: 80em) {
+            //1280px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==tab-land-big {
+        @media only screen and (max-width: 102em) {
+            //1632px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==big-desktop {
+        @media only screen and (min-width: 112.5em) {
+            //1800
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint==phone-to-tab-port {
+        @media only screen and (min-width: 37.5em) and (max-width: 56.25em) {
+            @content
+        }
+
+        ;
+    }
+
+}

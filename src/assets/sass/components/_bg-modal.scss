@@ -1,0 +1,12 @@
+.bg-modal {
+    @extend %bgHide;
+}
+
+.bg-black-sidebar {
+    @extend %bgHide;
+    display: none;
+
+    &.show {
+        display: block !important;
+    }
+}

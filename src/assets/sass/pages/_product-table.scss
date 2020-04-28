@@ -1,0 +1,259 @@
+.product-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.4rem;
+    border: 1px solid $color-grey-light-4;
+    width: 100%;
+
+    &__heading {
+        font-size: 1.6rem;
+        color: $color-grey-dark-4;
+        padding: 1.6rem 0;
+        text-align: left;
+        border-bottom: 1px solid $color-grey-light-4;
+
+        @include respond(phone) {
+            font-size: 1.4rem;
+            padding-right: 1rem;
+        }
+    }
+
+    &__remove {
+        width: 2.6rem;
+        height: 2.6rem;
+        line-height: 2.6rem;
+        text-align: center;
+        display: block;
+        margin: auto;
+        background-color: $color-grey-light-3;
+        color: $color-grey-dark-4;
+        border-radius: 50%;
+        font-size: 1.6rem;
+        font-weight: 500;
+        @include transition(0.2s);
+        cursor: pointer;
+
+        @include respond(tab-port) {
+            margin: 1.6rem;
+            background-color: $color-brown;
+            color: $color-white;
+        }
+
+        &:after {
+            line-height: 1.1rem;
+        }
+
+        &:hover {
+            @include respond(tab-port-min) {
+                background-color: $color-brown;
+                color: $color-white;
+                @include showSuggestTop('Remove');
+            }
+        }
+    }
+
+    &__img {
+        width: 7rem;
+        padding: 2rem 0;
+
+        @include respond(tab-port) {
+            padding-left: 1.6rem;
+        }
+
+        @include respond(phone) {
+            width: 8rem;
+        }
+    }
+
+    &__name {
+        font-size: 1.5rem;
+        color: $color-secondary;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    &__category {
+        font-size: 1.4rem;
+        color: $color-grey-dark-2;
+        margin-top: 0.2rem;
+
+        @include respond(phone) {
+            font-size: 1.5rem;
+        }
+
+        span {
+            font-weight: 400;
+        }
+    }
+
+    &__price,
+    &__total {
+        font-size: 1.6rem;
+        color: $color-secondary;
+        font-weight: 500;
+    }
+
+    tr {
+        &:not(:nth-child(2)) {
+
+            td {
+                border-top: 1px solid $color-grey-light-4;
+                vertical-align: middle;
+            }
+        }
+    }
+
+
+    &__status {
+        font-size: 1.7rem;
+        color: $color-grey-dark-2;
+
+        @include respond(tab-port) {
+            font-weight: 500;
+            @include tableFloat();
+        }
+
+        @include respond(tab-port) {
+            &:before {
+                @include tableTitle("Stock Status:");
+            }
+        }
+    }
+
+    &--wishlist {
+        .btn {
+            margin: 0 auto;
+            display: block;
+
+            @include respond(tab-port) {
+                margin: 2rem 2rem 3rem 2rem;
+            }
+        }
+    }
+}
+
+#section-cart {
+    .btn {
+        &-group {
+            margin-top: 3rem;
+            @include dFlex();
+        }
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+    .product-table__name {
+        @include respond(tab-port) {
+            width: 60%;
+            margin-left: auto;
+        }
+    }
+}
+
+#section-cart,
+#section-wishlist {
+    margin: 5rem 0;
+
+    .row {
+        @include respond(tab-land-medium-min) {
+
+            max-width: 131rem;
+            margin: 0 auto;
+        }
+    }
+
+    .alert-empty {
+        @include dFlex();
+        padding: 1.6rem;
+        background-color: $color-section-heading;
+        border-top: 3px solid $color-green;
+        margin-bottom: 3rem;
+
+        .fas {
+            font-size: 1.6rem;
+            color: $color-green;
+            padding-right: 0.6rem;
+        }
+
+        &__text {
+            font-size: 1.6rem;
+            color: $color-grey-dark-2;
+        }
+    }
+}
+
+.wrapper-cart-page,
+.wrapper-wishlist-page {
+    .product-table {
+        @include respond(tab-port) {
+
+            & tr,
+            & td {
+                display: block;
+                width: 100%;
+            }
+
+            & th {
+                display: none;
+            }
+
+        }
+
+        &__name {
+            @include hideText();
+            line-height: 2rem;
+            width: 80%;
+
+            @include respond(phone) {
+                font-size: 1.4rem;
+                margin-bottom: 0.4rem;
+            }
+        }
+
+        &__price {
+            @include respond(tab-port) {
+                @include tableFloat();
+            }
+
+            @include respond(tab-port) {
+                &:before {
+                    @include tableTitle("Price:");
+                }
+            }
+        }
+
+        &__details {
+
+            @include respond(tab-port) {
+                @include tableFloat();
+
+                &:before {
+                    @include tableTitle("Product:");
+                }
+            }
+        }
+
+        &__total {
+
+            @include respond(tab-port) {
+                @include tableFloat();
+
+                &:before {
+                    @include tableTitle("Subtotal:");
+                }
+            }
+        }
+
+        &__row-alert {
+            font-size: 1.5rem;
+            white-space: nowrap;
+
+            p {
+                width: 100%;
+                padding: 2.6rem 1.6rem;
+            }
+        }
+
+    }
+}

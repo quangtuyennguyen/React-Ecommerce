@@ -1,0 +1,32 @@
+.loading {
+    &-wrapper {
+        @extend %bgHide;
+        @include dFlex(center);
+        z-index: 99999;
+    }
+
+    &-box {
+        text-align: center;
+        margin: 4rem auto;
+        width: 4.4rem;
+        height: 4.4rem;
+        background: rgba($color: #000000, $alpha: .9);
+        @include dFlex(center);
+        border-radius: 0.4rem;
+        cursor: pointer;
+    }
+
+    &__image {
+        width: 56%;
+        &-small {
+            width: 1.6rem;
+            right: 7rem;
+            top: 1.6rem;
+            position: absolute;
+            opacity: .85;
+        }
+    }
+    &-auth {
+        
+    }
+}

@@ -1,0 +1,20 @@
+.header {
+    .fa {
+        &-cart-plus {
+            font-size: 1.8rem !important;
+            color: #575e6d !important;
+            width: 4rem;
+            height: 4rem;
+            background-color: $color-grey-light-2;
+            border-radius: 50%;
+            line-height: 4rem !important;
+            text-align: center;
+            margin-right: 0.4rem;
+        }
+
+        &-heart {
+            margin: 0 1.6rem;
+            cursor: pointer;
+        }
+    }
+}

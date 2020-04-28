@@ -1,0 +1,339 @@
+import { Line } from 'rc-progress';
+import 'rc-progress/assets/index.css';
+import React, { useState, useEffect } from 'react';
+
+
+export default function ({
+    strokeWidth, trailWidth,
+    strokeColor, trailColor,
+    rating, amount, end
+}) {
+    const [percent, setPercent] = useState(0);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    function increase() {
+        const newPercent = percent + 1;
+        const tm = setTimeout(increase, 10);
+        setPercent(newPercent);
+        console.log("demo");
+        if (newPercent >= end) {
+            clearTimeout(tm);
+            return;
+        };
+    };
+
+    useEffect(() => {
+        console.log("Did mount");
+        increase();
+    }, []);
+
+    return (
+        <div className="progress__item">
+            <div className="progress__heading">
+                <span className="progress__rating">
+                    {rating}
+                    <i className="fas fa-star"></i>
+                </span>
+                <span className="progress__amount">{amount}</span>
+            </div>
+            <Line
+                strokeWidth={strokeWidth ? strokeWidth : '1'}
+                trailWidth={trailWidth ? strokeWidth : '1'}
+                strokeColor={strokeColor}
+                percent={percent}
+                trailColor={trailColor}
+            />
+        </div>
+    );
+};
+
+
+1 => config store and connect redux saga 
+2 => config firebase to conenct data
+3 => config axiosService
+4 => api = [
+  --> users data
+  --> products data
+  --> productComments data
+  --> posts data
+  --> postComments data
+]
+
+
+node js => (
+  handle logic send to react a url call api
+  react js CRUD data call api node js handle data return from react
+  update into database example mongodb, portgreesql
+  fit with some large, data fast develop 
+);
+
+firebase => (
+  firebase is a realtime platform
+  after configure firebase in react project react CURD data then firebase will update data realtime
+  fit some small project, free smaller 5gb
+);
+
+
+
+
+firebase => export a refProduct (push, remove, set)
+reducer => 
+action => refProduct
+app => fetch product by a action from action support fetch data from firebase
+
+
+show loading never pause
+
+firebase exersice
+
+
+
+
+
+
+
+1 => Learn english(1 hours) || 6.30 => 7.30 => done!
+2 => (Free code camp javascript learning + typing) (1hours) || 1.45 => 2.45 => done!
+3 => Read book(30 minutes) || 5.10 => 5.40 => done!
+4.1 => Football(communication, exercise)(1 hours) || 4.0 => 5.0 => done!
+4.2 => Chống đẩy(15 cái)(1 hours) || 4.0 => 5.0 => done!
+5 => Finish job || All the time left
+
+
+
+
+
+
+
+
+
+    
+The document is global variable should when click will add always
+should when use documment people should remove event when component unmount
+use removeEventListener
+useEscape or useClickoutside should is a useCustom in utilities
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+
+const body = document.getElementsByTagName('body')[0];
+
+class Modal extends React.Component {
+    constructor(props) {
+        super(props);
+        this.elm = document.createElement('div');
+        this.elm.setAttribute('id', 'modal-root');
+    };
+    componentDidMount() {
+        body.insertBefore(this.elm, body.childNodes[0]); 
+    };
+
+    componentWillUnmount() {
+        // Remove the element from the DOM when we unmount
+        body.removeChild(this.elm);
+    };
+
+
+    render() {
+        const { isOpen, component } = this.props.modal;
+        return ReactDOM.createPortal(
+            // Any valid React child: JSX, strings, arrays, etc.
+            isOpen ? component : null,
+            // A DOM element
+            this.elm,
+        );
+    };
+};
+
+const mapStateToProps = state => ({
+    modal: state.modal
+});
+
+export default connect(mapStateToProps)(Modal);
+
+
+// useEscKeydown(() => {
+//     hideModal();
+// })
+
+
+clean up component 
+
+
+
+import React, { useEffect, useCallback, useState } from "react";
+
+
+export const ActionPanel = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const escFunction = useCallback((event) => {
+    if(event.keyCode === 27) {
+      //Do whatever when esc is pressed
+      console.log(event.keyCode);
+      setIsOpen(!isOpen);
+    }
+  }, [isOpen]);
+
+  console.log(isOpen);
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, [escFunction]);
+
+  return (   
+    isOpen && (<div>demo</div>)
+  )
+  
+  
+
+
+
+
+
+When user signined => App automatic get current user => onAuthStateChanged
+Handle Success: {
+  if (user) {
+    tostify.success('Sign in success');
+    Send to store => { email: '...', username: '...', isAuthenticated:  }
+  } else {
+  // handle show modal signin in case does not fetch user
+  }
+}
+If does not fetch use handle dispatch action FETCH_ACCOUNT_INFO_FAILD
+when auth error => tostify error
+tostify.eror("Sign in error");
+
+
+hidden => loading => checked
+
+
+Convert about formik
+Validation
+Handle error when authentication
+
+FORMIK {
+  1: Should not missing mapPropsToValue (show error when submit, get value from store (edit item))
+  2: Touched, error and field to show error and handle change
+  3: Should use some props from FORMIK like resetForm, invalid, etc
+}
+
+Email {
+  account doesn't exist, Please try again.
+
+}
+
+Password {
+  The Password You Entered is Incorrect. Please try again.
+}
+
+
+
+
+1 => Fix validation signin
+2 => Convert signup from 
+3 => Validation signup form
+4 => Convert resetForm and update validation
+5 => Username need is a string
+6 => Show pophover signout
+
+
+
+
+Like and dislike ={
+  const [demo, setDemo] = useState({
+        child: '',
+        value: 20
+    });
+    const [like, setLike] = useState({ name: 'like', active: false });
+    const [dislike, setDislike] = useState({ name: 'dislike', active: false });
+    const { name: likeName, active: likeActive } = like;
+    const { name: dislikeName, active: dislikeActive } = dislike;
+
+    // postComment.child(child).set(data + (active ? 1 : -1));
+    const handleLikeAndDislikeRequest = useCallback(
+        (child, active) => {
+            console.log(child, active);
+            setDemo({
+                child,
+                value: active ? 1 : -1
+            });
+        },
+        [],
+    );
+
+
+    const handleLikeAndDislike = useCallback(
+        () => {
+            // if (likeName) {
+            //     handleLikeAndDislikeRequest('like', likeActive);
+            // } else if (dislikeName) {
+            //     handleLikeAndDislikeRequest('dislike', dislikeActive);
+            // };
+        },
+        [dislikeActive, dislikeName, handleLikeAndDislikeRequest, likeActive, likeName],
+    );
+
+    const handleLike = () => {
+        if (dislikeActive) {
+            setDislike({ ...dislike, active: false });
+            handleLikeAndDislikeRequest('dislike', false);
+        };
+        setLike({ ...like, active: !likeActive });
+    };
+
+    const handleDislike = () => {
+        if (likeActive) {
+            setLike({ ...like, active: false });
+            handleLikeAndDislikeRequest('like', false);
+        };
+        setDislike({ ...dislike, active: !dislikeActive });
+    };
+
+    useEffect(() => {
+        handleLikeAndDislike();
+    }, [handleLikeAndDislike]);
+
+
+
+
+Should not import style, js file at public/index.html
+Should not put tag like <a href="/">To Top</a> in public/index.html because when reload page does get style.css will affect to ui
+Only can put assets folder in src folder. This is very important because react does not supported import outside this folder
+
+
+
+
+
+   /* 
+    import React from 'react';
+import { Carousel as CarouselLibrary } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+
+export const Carousel = ({
+    children, variant,
+    showArrows, showIndicators,
+    showThumbs
+}) => (
+        <CarouselLibrary
+        className={variant ? variant : 'box-carousel'}
+        showThumbs={showThumbs ? true : false}
+        infiniteLoop
+        useKeyboardArrows
+        autoPlay
+        interval={10000}
+        showStatus={false}
+        showArrows={showArrows ? true : false}
+        showIndicators={showIndicators ? true : false}
+    >
+        {children}
+    </CarouselLibrary>
+);
+    
+    
+    */

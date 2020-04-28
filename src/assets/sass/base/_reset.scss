@@ -1,0 +1,72 @@
+// Reset
+*,
+*:after,
+*:before {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+    @include respond(tab-land-big) {
+        // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+input,
+input:focus,
+select {
+    outline: none;
+    box-shadow: none;
+}
+
+button,
+button:active,
+button:visited,
+button:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+
+ul,
+ol {
+    list-style: none;
+}
+
+::selection {
+    background-color: #4e54c826;
+    color: $color-grey-dark-3;
+}
+
+textarea,
+input.text,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="button"],
+input[type="submit"],
+input[type="search"],
+.input-checkbox,
+select {
+    @include respond(tab-port) {
+        -webkit-appearance: none;
+        outline-color: transparent !important;
+        outline: 0 !important;
+    }
+}

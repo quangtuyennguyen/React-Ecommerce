@@ -1,0 +1,306 @@
+.btn {
+
+    &,
+    &:visited,
+    &:focus,
+    &:active {
+        font-family: 'Open Sans', sans-serif;
+        position: relative;
+        outline: none;
+        box-shadow: none;
+        text-align: center;
+        display: inline-block;
+        cursor: pointer;
+        font-weight: 500;
+        z-index: 2;
+        font-size: 1.4rem;
+        border-radius: 0.4rem;
+        @include transition(0.2s);
+    }
+
+    &--primary {
+        padding: 1.4rem 3rem;
+        color: $color-grey-dark-2;
+        line-height: 1.6rem;
+        border-radius: 0.4rem;
+        background-color: $color-primary;
+        margin-top: 3rem;
+        overflow: hidden;
+
+        @include respond(phone) {
+            padding-left: 1.8rem;
+            padding-right: 1.8rem;
+        }
+    }
+
+    &--primary:before,
+    &--secondary:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        z-index: -1;
+        background-color: $color-green;
+        @include transition(0.4s);
+    }
+
+    &--primary:hover:before,
+    &--secondary:hover:before {
+        left: auto;
+        right: 0;
+        width: 100%;
+    }
+
+    &--primary:hover,
+    &--primary:hover .fa,
+    &--secondary:hover {
+        color: $color-white;
+    }
+
+    &--primary .angle-right {
+        position: relative;
+        left: 0.5rem;
+        top: 0.1rem;
+        font-size: 1.8rem;
+    }
+
+    &--small,
+    &--small:active,
+    &--small:focus,
+    &--small:visited {
+        padding: 0.8rem 1.2rem !important;
+        display: block;
+        width: 100%;
+        border-radius: 0.3rem;
+        margin-top: 0;
+        font-weight: 400;
+
+        .fa-cart-plus {
+            color: $color-white;
+            padding-right: 0.5rem;
+        }
+    }
+
+
+
+    &--link,
+    &--link:active,
+    &--link:focus,
+    &--link:visited {
+        background-color: transparent;
+        color: $color-grey-dark-4;
+        font-size: 1.3rem;
+
+        .fa-eye {
+            padding-right: 0.4rem;
+            color: $color-grey-dark-4;
+        }
+    }
+
+    &--secondary {
+        background-color: $color-secondary;
+        color: $color-white;
+        margin-right: 0.4rem;
+        padding: 1.3rem 2.6rem;
+        overflow: hidden;
+
+        &:disabled {
+            opacity: .6;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        @include respond(phone) {
+            padding: 1.2rem 2.6rem;
+        }
+    }
+
+    &-remove {
+
+        &,
+        &:active,
+        &:active:visited,
+        &:focus {
+            line-height: 1.5715;
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            border: 1px solid transparent;
+            cursor: pointer;
+            padding: 0.4rem 1.5rem;
+            font-size: 1.4rem;
+            border-radius: 2px;
+        }
+
+        &--primary {
+            color: $color-white;
+            background-color: #1890ff;
+            margin-left: 0.8rem;
+
+            &:focus,
+            &:visited,
+            &:active,
+            &:hover {
+                background-color: #096dd9;
+            }
+        }
+
+        &--secondary {
+            color: $color-grey-dark-2;
+            background-color: #fff;
+            border-color: #d9d9d9;
+
+            &:active,
+            &:visited,
+            &:focus,
+            &:hover {
+                color: #40a9ff;
+                background-color: #fff;
+                border-color: #40a9ff;
+            }
+        }
+    }
+
+    &--outline,
+    &--outline:active,
+    &--outline:focus,
+    &--outline:visited {
+        padding: 1.2rem 2rem;
+        background-color: transparent;
+        border: 1px solid $color-secondary;
+        color: $color-secondary;
+        font-size: 1.4rem;
+        margin: auto;
+        display: block;
+        @include transition(0.2s);
+
+        .fa {
+            color: $color-secondary !important;
+        }
+
+        &:hover {
+            background-color: $color-secondary;
+            color: $color-white;
+        }
+
+        &:hover .fa {
+            color: $color-white !important;
+        }
+    }
+
+    &--outline--small,
+    &--outline--small:focus,
+    &--outline--small:active,
+    &--outline--small:visited {
+        background-color: $color-white;
+        border: 1px solid $color-grey-light-4;
+        padding: 0.6rem 0.8rem;
+        font-size: 1.3rem;
+        color: $color-grey-dark-2;
+        display: inline-block;
+        width: auto;
+        font-weight: 400;
+
+        &:hover {
+            background-color: $color-section-heading;
+        }
+    }
+
+    &--round {
+        border-radius: 50rem !important;
+    }
+
+    &-scroll-top {
+        width: 3.4rem;
+        height: 3.4rem;
+        line-height: 3.4rem;
+        position: fixed !important;
+        right: -100%;
+        bottom: 14rem;
+        background-color: $color-grey-light-3;
+        color: $color-grey-dark-4;
+        font-size: 1.6rem;
+        border-radius: 0.2rem;
+        z-index: 99;
+        cursor: pointer;
+
+        @include respond(phone) {
+            bottom: 8rem;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        &.show {
+            @include showElm();
+            animation: showBtntoTop 0.6s ease forwards;
+        }
+
+        &:hover {
+            @include showSuggestTop('To top', translate(-100%, 150%), suggestMoveInRight);
+            background-color: $color-grey-light-4;
+
+        }
+
+        &:hover:after {
+            line-height: 1.6rem;
+            padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+        }
+
+    }
+
+    &--white,
+    &--white:focus,
+    &--white:visited,
+    &--white:active {
+        background-color: transparent;
+        background-image: url(../images/icons/gg_icon.png);
+        background-size: cover;
+        height: 4.5rem;
+        width: 12rem;
+        line-height: 4.5rem;
+        font-size: 1.4rem;
+        border: 1px solid $color-grey-light-4;
+        margin-left: 1.5rem !important;
+        padding-left: 0.4rem !important;
+        color: $color-grey-dark-2;
+    }
+
+    // .fa {
+    //     padding: 0 0.6rem;
+    // }
+
+    &__square {
+        width: 4.2rem;
+        height: 3.4rem;
+
+        .far {
+            font-size: 1.3rem;
+        }
+
+        &:not(:last-child) {
+            border-radius: 0.3rem 0 0 0.3rem;
+        }
+
+        &:not(:first-child) {
+            border-radius: 0 0.3rem 0.3rem 0;
+        }
+
+        &--danger {
+            background-color: #dc3545;
+
+            .far {
+                color: #fff;
+            }
+        }
+
+        &--warning {
+            background-color: #ffc107;
+        }
+    }
+}

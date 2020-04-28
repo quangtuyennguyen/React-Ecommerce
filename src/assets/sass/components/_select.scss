@@ -1,0 +1,93 @@
+.sort {
+    &--primary {
+        .sort__wrap {
+            border: 1px solid $color-grey-light-4;
+            border-radius: 0.4rem;
+        }
+
+        .sort__heading {
+            background-color: transparent;
+        }
+    }
+
+    &__heading {
+        padding: 1.2rem;
+        font-size: 1.6rem;
+        color: $color-grey-dark-3;
+        border-radius: 0.4rem;
+        background: $color-white url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/0.8rem 1rem;
+        border: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        text-align: left;
+        width: 18rem;
+
+        @include respond(phone) {
+            font-size: 1.4rem;
+            border-radius: 0.2rem;
+        }
+    }
+
+    &__wrap {
+        position: relative;
+        z-index: 999;
+        width: 18rem;
+    }
+
+    &__box {
+        right: 0;
+        top: 4rem;
+        position: absolute;
+        width: 18rem;
+        background-color: $color-white;
+        box-shadow: 0 0.3rem 1.525rem -0.375rem rgba(0, 0, 0, 0.1);
+    }
+
+    &__btn {
+        background-color: transparent;
+        display: block;
+        font-size: 1.5rem;
+        padding: 0.8rem 1.6rem;
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+
+        @include respond(phone) {
+            font-size: 1.4rem;
+            border-radius: 0.2rem;
+        }
+
+        &--active,
+        &--active:hover {
+            background-color: $color-secondary !important;
+            color: $color-white !important;
+        }
+
+        &:hover {
+            background-color: $color-grey-light-1;
+        }
+    }
+}
+
+.select {
+    width: 100%;
+    border-radius: 0.4rem;
+    background: $color-white url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/0.8rem 1rem;
+    border: 1px solid $color-grey-light-4;
+    color: $color-grey-dark-2;
+    font-size: 1.6rem;
+    position: relative;
+    -webkit-appearance: none !important;
+    font-family: "Open sans";
+    padding: 1rem 0.8rem;
+
+    @include respond(tab-port) {
+        border: 1px solid $color-grey-light-4;
+    }
+
+    &:focus {
+        border-color: rgba(105, 120, 254, 0.35);
+        box-shadow: 0 0 0 0 transparent, 0 0.375rem 0.625rem -0.3125rem rgba(105, 140, 254, 0.15);
+    }
+
+}

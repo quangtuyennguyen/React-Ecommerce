@@ -1,0 +1,124 @@
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 34rem;
+    z-index: 1000;
+    padding: 3.2rem 2rem;
+    z-index: 999999;
+    height: 100vh;
+    box-shadow: 0 0.25rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.03), 0 0.275rem 1.25rem -0.0625rem rgba(0, 0, 0, 0.05);
+    background-color: $color-white;
+    @include animation(moveInLeft .3s forwards);
+
+    .btn-group {
+        margin: 3rem 0;
+
+        .btn:first-child {
+            margin-right: 0.8rem;
+        }
+    }
+
+    &__link {
+        @include dFlex();
+    }
+
+    &__list {
+        height: 72%;
+        overflow: auto;
+    }
+
+    &__heading {
+        font-size: 1.6rem;
+        color: $color-grey-dark-4;
+        margin-bottom: 1.5rem;
+
+        span {
+            float: right;
+            width: 2.6rem;
+            height: 2.6rem;
+            text-align: center;
+            display: block;
+            background-color: $color-grey-light-3;
+            color: $color-grey-dark-4;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            font-weight: 500;
+            @include transition(0.2s);
+            line-height: 2.6rem;
+            cursor: pointer;
+            position: relative;
+
+            &:hover {
+                background-color: $color-red;
+                color: $color-white;
+            }
+
+            &:hover {
+                @include showSuggestTop('Close');
+            }
+        }
+    }
+
+    &__item {
+        padding: 1rem 0.6rem 1rem 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $color-grey-light-2;
+        }
+    }
+
+    &__img {
+        width: 7rem;
+        padding-right: 0.8rem;
+        @include transition();
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        color: $color-secondary;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        text-transform: capitalize;
+        @include hideText();
+        line-height: 2rem;
+        @include transition();
+
+        &:hover {
+            color: $color-grey-dark-4;
+        }
+    }
+
+    &__price {
+        font-size: 1.5rem;
+        color: $color-secondary;
+        font-weight: 400;
+
+        span {
+            color: $color-grey-dark-2;
+            font-weight: 600;
+        }
+    }
+
+    &__total {
+        margin: 1rem 0 0 0;
+        font-size: 1.6rem;
+        color: $color-grey-dark-1;
+
+        span {
+            color: $color-secondary;
+            font-weight: 600;
+        }
+
+    }
+
+    &:hover img {
+        opacity: 0.8;
+    }
+
+    &__message {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        color: $color-grey-dark-4;
+    }
+}

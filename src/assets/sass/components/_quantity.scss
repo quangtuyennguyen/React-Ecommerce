@@ -1,0 +1,57 @@
+.quantity {
+    @include dFlex();
+
+    input {
+
+        font-size: 1.7rem;
+        box-shadow: none;
+        border: 1px solid $color-grey-light-4;
+        padding: 0 0.5rem;
+        width: 4rem;
+        height: 4rem;
+        color: $color-grey-dark-1;
+        border-radius: 0 !important;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    &__count {
+        &-box {
+            @include dFlex(flex-end);
+        }
+
+        background-color: $color-about-bg;
+        cursor: pointer;
+        border-radius: 0;
+        box-shadow: transparent;
+        background-color: transparent;
+        line-height: 4rem;
+
+        &:hover,
+        &:focus {
+            background-color: $color-section-heading;
+        }
+    }
+
+    &__amount {
+        text-align: center;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    @include respond(tab-port) {
+        @include tableFloat();
+    }
+
+    @include respond(tab-port) {
+        &:before {
+            @include tableTitle("Quantity:");
+        }
+    }
+}

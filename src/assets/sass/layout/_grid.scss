@@ -1,0 +1,317 @@
+.row {
+    max-width: 100%;
+    margin: 0 4% 0 4%;
+
+    @include clearFix();
+
+    &-fluid {
+        width: 100%;
+        @include clearFix();
+    }
+
+    .col {
+        float: left;
+        @include respond(phone) {
+            width: 100% !important;
+            margin: 0 !important;
+        }
+    }
+
+    .span_1_of_1 {
+        width: 100%;
+    }
+
+    .span_1_of_2 {
+        width: calc((100% - #{$gutter-horizontal-medium}) / 2);
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+    }
+
+    .span_1_of_3 {
+        width: calc((100% - 2 * #{$gutter-horizontal-big}) / 3);
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-big;
+        }
+    }
+
+    .span_2_of_3 {
+        width: calc(2 * ((100% - 2 * #{$gutter-horizontal-big}) / 3) + #{$gutter-horizontal-big});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-big;
+        }
+
+    }
+
+    .span_1_of_4 {
+
+        width: calc(((100% - 3 * #{$gutter-horizontal-medium}) / 4));
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - #{$gutter-horizontal-medium}) / 2));
+
+            &:not(:nth-child(odd)) {
+                margin-left: $gutter-horizontal-medium;
+            }
+
+            &:nth-child(odd) {
+                margin-left: 0;
+            }
+        }
+
+        @include respond(tab-land-medium) {
+
+            width: calc(((100% - 3 * #{$gutter-horizontal-small}) / 4));
+
+            &:not(:first-child) {
+                margin-left: $gutter-horizontal-small;
+            }
+
+        }
+    }
+
+    .span_2_of_4 {
+
+        width: calc(2 * ((100% - 3 * #{$gutter-horizontal-medium}) / 4) + #{$gutter-horizontal-medium});
+        margin-left: $gutter-horizontal-medium;
+
+        @include respond(tab-port) {
+            width: calc(((100% - #{$gutter-horizontal-medium}) / 2));
+
+            &:not(:nth-child(odd)) {
+                margin-left: $gutter-horizontal-medium;
+            }
+
+            &:nth-child(odd) {
+                margin-left: 0;
+            }
+        }
+
+    }
+
+    .span_3_of_4 {
+
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal-medium}) / 4) + 2 * #{$gutter-horizontal-medium});
+        margin-left: $gutter-horizontal-medium;
+
+        @include respond(tab-port) {
+            width: calc(((100% - #{$gutter-horizontal-medium}) / 2));
+
+            &:not(:nth-child(odd)) {
+                margin-left: $gutter-horizontal-medium;
+            }
+
+            &:nth-child(odd) {
+                margin-left: 0;
+            }
+        }
+
+    }
+
+    .span_1_of_5 {
+
+        width: calc(((100% - 4 * #{$gutter-horizontal-medium}) / 5));
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+    }
+
+    .span_2_of_5 {
+
+        width: calc(2 * ((100% - 4 * #{$gutter-horizontal-medium}) / 5) + #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+    }
+
+    .span_3_of_5 {
+
+        width: calc(3 * ((100% - 4 * #{$gutter-horizontal-medium}) / 5) + 2 * #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+    }
+
+    .span_4_of_5 {
+
+        width: calc(4 * ((100% - 4 * #{$gutter-horizontal-medium}) / 5) + 3 * #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+    }
+
+
+    .span_1_of_6 {
+
+        width: calc(((100% - 5 * #{$gutter-horizontal-medium}) / 6));
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+
+    .span_2_of_6 {
+
+        width: calc(2 * ((100% - 5 * #{$gutter-horizontal-medium}) / 6) + #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+
+    .span_3_of_6 {
+
+        width: calc(3 * ((100% - 5 * #{$gutter-horizontal-medium}) / 6) + 2 * #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+
+    .span_4_of_6 {
+
+        width: calc(4 * ((100% - 5 * #{$gutter-horizontal-medium}) / 6) + 3 * #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+
+    .span_1_of_8 {
+
+        width: calc((100% - #{7 * $gutter-horizontal-medium}) / 8);
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+
+    .span_2_of_8 {
+
+        width: calc(2 * ((100% - 7 * #{$gutter-horizontal-medium}) / 8) + #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+
+    .span_5_of_8 {
+
+        width: calc(5 * ((100% - 7 * #{$gutter-horizontal-medium}) / 8) + 4 * #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+
+    .span_7_of_8 {
+
+        width: calc(7 * ((100% - 7 * #{$gutter-horizontal-medium}) / 8) + 6 * #{$gutter-horizontal-medium});
+
+        &:not(:first-child) {
+            margin-left: $gutter-horizontal-medium;
+        }
+
+        @include respond(tab-port) {
+            width: calc(((100% - 2 * #{$gutter-horizontal-medium}) / 3));
+            margin-left: $gutter-horizontal-medium;
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                margin-left: 0
+            }
+        }
+
+    }
+}

@@ -1,0 +1,80 @@
+.sidebar-nav--mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #222;
+    width: 320px;
+    height: 100vh;
+    z-index: 99999;
+    overflow-y: auto;
+    @include animation(moveInRight 0.4s ease forwards);
+
+    @include respond(phone) {
+        width: 290px;
+    }
+
+    .box-icons {
+        @include dFlex(flex-end);
+
+        .fas {
+            margin: 0 0.6rem;
+        }
+    }
+
+    &__header {
+
+        .fa {
+            color: $color-grey-light-4 !important;
+
+            &:not(.fa-user-o) {
+                padding: 2rem 4rem;
+                font-size: 2.2rem;
+            }
+        }
+
+        .box-icons {
+            padding: 2rem 2rem 0rem 4rem;
+
+            &>* {
+                color: $color-grey-light-4 !important;
+                padding: 0 1.2rem;
+                font-size: 2.2rem;
+            }
+
+            span {
+                font-size: 3.6rem !important;
+                color: $color-grey-light-4;
+                @include transition();
+
+                &:hover {
+                    color: $color-grey-light-5 !important;
+                }
+            }
+        }
+    }
+
+    .nav {
+        &__item {
+            display: block;
+            padding: 0 0.6rem;
+            &:first-child {
+               .nav__link {
+                   padding-top: 0;
+               }
+            }
+        }
+
+        &__link {
+            color: $color-grey-light-5;
+            display: block;
+            font-size: 2rem;
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid rgb(47, 47, 47);
+
+            &--active,
+            &:hover {
+                color: $color-grey-light-4;
+            }
+        }
+    }
+}

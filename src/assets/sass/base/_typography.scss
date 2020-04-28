@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    src: url('./fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Product sans';
+    src: url('./fonts/ProductSans-Regular.ttf');
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
+
+    @include respond(phone) {
+        overflow-x: hidden;
+    }
+
+    &.fixed {
+        overflow: hidden !important;
+        ::-webkit-scrollbar {
+            width: 0.5rem !important;
+        }
+    
+        ::-webkit-scrollbar-thumb {
+            background: #a8a8a8 !important;
+            border-radius: 4rem !important;
+        }
+    
+        ::-webkit-scrollbar-track {
+            background: #ddd !important;
+            border-radius: 4rem !important;
+        }
+    }
+}
+
+a,
+a:visited,
+a:link {
+    text-decoration: none;
+}
+
+.heading-primary {
+    &--sub {
+        font-size: 2.6rem;
+        color: $color-white;
+        font-weight: 400;
+        @include hideElm();
+
+        @include respond(phone) {
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+    }
+
+    &--main {
+        font-size: 4.6rem;
+        color: $color-white;
+        @include hideElm();
+
+        @include respond(tab-land-medium) {
+            font-size: 3rem;
+        }
+
+        @include respond(phone) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &--desc {
+        font-size: 1.8rem;
+        color: $color-white;
+        font-weight: 400;
+        @include hideElm();
+    }
+}
+
+.heading-secondary {
+    font-size: 2rem;
+
+    @include respond(phone) {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+}
+
+.heading-title {
+    &--main {
+        font-size: 4.2rem;
+        color: $color-grey-dark-4;
+        line-height: 4.6rem;
+        font-family: 'Product sans' !important;
+        font-weight: 800;
+        letter-spacing: 0.2rem;
+
+        @include respond(tab-port) {
+            font-size: 3.6rem;
+            line-height: 3.8rem;
+            letter-spacing: 0;
+        }
+
+        &--medium {
+            font-size: 2.8rem;
+            color: $color-grey-dark-2;
+            margin: 1rem 0 1.6rem 0;
+            font-weight: 700;
+            font-family: 'Product sans';
+
+            @include respond(phone) {
+                font-size: 2.2rem;
+            }
+        }
+    }
+
+    &--sub {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        display: block;
+        color: $color-secondary;
+
+        &--bold {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+    }
+}

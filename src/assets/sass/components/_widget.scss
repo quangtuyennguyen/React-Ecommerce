@@ -1,0 +1,16 @@
+.widget {
+    margin-top: 1rem;
+
+    &__item {
+        font-size: 1.4rem;
+        color: $color-grey-dark-1;
+
+        &:hover {
+            color: $color-grey-dark-4;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 0.4rem;
+        }
+    }
+}

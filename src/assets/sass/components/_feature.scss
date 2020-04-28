@@ -1,0 +1,43 @@
+.feature {
+    position: relative;
+    overflow: hidden;
+
+    @include respond(phone) {
+        margin-bottom: 1.5rem;
+    }
+
+
+    &__img {
+        width: 100%;
+    }
+
+    cursor: pointer;
+
+    &:after,
+    &:before {
+        content: "";
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        top: 0%;
+        left: 120%;
+        background-color: rgba(255, 255, 255, .5);
+        right: 0;
+        transform: rotate3d(1, 1, 1, -60deg) scaleY(2);
+        z-index: 100;
+        @include transition(0.8s);
+        @include hideElm();
+        transition-delay: 0.1s;
+    }
+
+    &:before {
+        transition-delay: 0.4s;
+    }
+
+    &:hover:after,
+    &:hover:before {
+        left: -50%;
+        top: 0%;
+        @include showElm();
+    }
+}

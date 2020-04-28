@@ -1,0 +1,12 @@
+#section-heading {
+    padding: 2rem 0;
+    background-color: $color-section-heading;
+
+    @include respond(tab-land-medium-min) {
+        .row {
+            max-width: 131rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}
