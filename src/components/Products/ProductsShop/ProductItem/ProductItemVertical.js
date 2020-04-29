@@ -7,8 +7,8 @@ import slug from 'slug';
 import * as actions from '../../../../actions';
 import { TIMER_VALUES } from '../../../../constants';
 import { formatter, renderRating } from '../../../../utils';
-import ProductView from '../../../ProductView/ProductView';
-import CartSideBar from '../../../Sidebars/CartSideBar/CartSideBar';
+import ProductView from '../../../ProductView';
+import CartSideBar from '../../../Sidebars/CartSideBar';
 
 ProductItem.propTypes = {
   id: PropTypes.string,
@@ -37,7 +37,7 @@ ProductItem.defaultProps = {
   category: '',
 };
 
-const ProductItem = ({
+function ProductItem({
   id,
   title,
   images,
@@ -51,7 +51,7 @@ const ProductItem = ({
   addToCart,
   hideModal,
   toggleLoading,
-}) => {
+}) {
   const { id: idParams } = useParams();
   const handleAddToWishList = () => {
     toggleLoading(TIMER_VALUES.main, () => {
@@ -135,6 +135,6 @@ const ProductItem = ({
       </div>
     </div>
   );
-};
+}
 
 export default connect(null, actions)(ProductItem);

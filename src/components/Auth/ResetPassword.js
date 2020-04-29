@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 import { auth } from '../../services/firebase';
-import { useEscKeydown } from '../../utils/useEscKeydown';
+import useEscKeydown from '../../utils/useEscKeydown';
 import SignIn from './SignIn';
 
 ResetPassword.propTypes = {
@@ -12,7 +12,7 @@ ResetPassword.propTypes = {
   hideModal: PropTypes.func.isRequired,
 };
 
-const ResetPassword = ({ hideModal, showModal }) => {
+function ResetPassword({ hideModal, showModal }) {
   const [email, setEmail] = useState('');
   const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
   const [error, setError] = useState(null);
@@ -87,6 +87,6 @@ const ResetPassword = ({ hideModal, showModal }) => {
       </div>
     </div>
   );
-};
+}
 
 export default connect(null, actions)(ResetPassword);

@@ -1,5 +1,5 @@
 import * as types from '../actions/types';
-import { RANGER_VALUES } from '../constants/index';
+import { RANGER_VALUES } from '../constants';
 
 const { min, max } = RANGER_VALUES;
 const INITIAL_STATE = { min, max };

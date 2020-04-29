@@ -1,18 +1,18 @@
-import Home from '../containers/Home/Home';
-import Shop from '../containers/Shop/Shop';
-import Blog from '../containers/Blog/Blog';
-import { About } from '../containers/About/About';
-import Checkout from '../containers/Checkout/Checkout';
-import Carts from '../containers/Cart/Carts';
-import Admin from '../containers/Admin/Admin';
+import Home from '../containers/Home';
+import Shop from '../containers/Shop';
+import Blog from '../containers/Blog';
+import About from '../containers/About';
+import Checkout from '../containers/Checkout';
+import Carts from '../containers/Cart';
+import Admin from '../containers/Admin';
 import AdminSignin from '../containers/AdminSignin';
-import { ContactContainer } from '../containers/Contact/Contact';
-import WishListContainer from '../containers/WishList/WishList';
-import { NotFound } from '../containers/NotFound/NotFound';
-import ProductDetailsContainer from '../containers/ProductDetails/ProductDetails';
-import PostDetails from '../containers/PostDetails/PostDetails';
-import SearchPage from '../containers/SearchPage/SearchPage';
-import OrderDetails from '../containers/OrderDetails/OrderDetails';
+import ContactContainer from '../containers/Contact';
+import WishListContainer from '../containers/WishList';
+import NotFound from '../containers/NotFound';
+import ProductDetailsContainer from '../containers/ProductDetails';
+import PostDetails from '../containers/PostDetails';
+import SearchPage from '../containers/SearchPage';
+import OrderDetails from '../containers/OrderDetails';
 
 export const routes = [
   {

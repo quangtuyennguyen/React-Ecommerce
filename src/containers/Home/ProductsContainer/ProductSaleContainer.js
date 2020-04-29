@@ -1,8 +1,9 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { ProductItem } from '../../../components/Products/ProductsSale/ProductItem/ProductItem';
-import { ProductList } from '../../../components/Products/ProductsSale/ProductList/ProductList';
+
+import ProductItem from '../../../components/Products/ProductsSale/ProductItem';
+import ProductList from '../../../components/Products/ProductsSale/ProductList';
 import { renderProducts } from '../../../utils';
 
 ProductSaleContainer.propTypes = {
@@ -12,7 +13,7 @@ ProductSaleContainer.propTypes = {
 ProductSaleContainer.defaultProps = {
   products: [],
 };
-export const ProductSaleContainer = ({ products }) => {
+export default function ProductSaleContainer({ products }) {
   const [currentTab, setCurrentTab] = useState({ tab: '16%', tabIndex: 0 });
   const { tab, tabIndex } = currentTab;
 
@@ -25,4 +26,4 @@ export const ProductSaleContainer = ({ products }) => {
       {renderProducts(filterProducts().slice(0, 3), ProductItem)}
     </ProductList>
   );
-};
+}

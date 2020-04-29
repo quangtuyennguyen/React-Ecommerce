@@ -74,7 +74,7 @@ function AdminAuth({ adminAuth: adminAuthAction, toggleLoading }) {
               />
             )}
           </Field>
-          {touched.email && (
+          {touched.email && errors.email && (
             <span className="form__text-error">{errors.email}</span>
           )}
           <label htmlFor="password">Password</label>
@@ -89,7 +89,7 @@ function AdminAuth({ adminAuth: adminAuthAction, toggleLoading }) {
               />
             )}
           </Field>
-          {touched.password && (
+          {touched.password && errors.password && (
             <span className="form__text-error">{errors.password}</span>
           )}
           <div>

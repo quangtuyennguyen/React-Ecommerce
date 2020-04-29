@@ -3,13 +3,13 @@ import React, { Fragment } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import BgModal from '../../commons/BgModal/BgModal';
-import Loading from '../../commons/Loading/Loading';
-import Modal from '../../commons/Modal/Modal';
-import { Main } from '../../containers/Main/Main';
+import BgModal from '../../commons/BgModal';
+import Loading from '../../commons/Loading';
+import Modal from '../../commons/Modal';
+import Main from '../../containers/Main';
 import { Zoom } from '../../helpers';
-import { Footer } from '../Footer/Footer';
-import { Header } from '../Header/Header';
+import Footer from '../Footer';
+import Header from '../Header';
 
 export const customRoutes = (path, MyComponent, isFetched) => {
   if (path !== '/admin-signin') {

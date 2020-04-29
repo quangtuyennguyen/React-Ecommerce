@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 
-export const useEscKeydown = callback => {
+export default function useEscKeydown(callback) {
   const escFunction = useCallback(
     event => {
       if (event.keyCode === 27) {
@@ -18,4 +18,4 @@ export const useEscKeydown = callback => {
       };
     }
   }, [callback, escFunction]);
-};
+}

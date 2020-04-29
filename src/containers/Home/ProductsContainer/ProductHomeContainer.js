@@ -1,12 +1,12 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { ProductItem } from '../../../components/Products/ProductsHome/ProductItem/ProductItem';
-import { ProductList } from '../../../components/Products/ProductsHome/ProductList/ProductList';
-import { CATEGORY_LISTS } from '../../../constants/index';
+import ProductItem from '../../../components/Products/ProductsHome/ProductItem';
+import ProductList from '../../../components/Products/ProductsHome/ProductList';
+import { CATEGORY_LISTS } from '../../../constants';
 import { renderProducts } from '../../../utils';
 
-export const ProductHomeContainer = ({ products }) => {
+export default function ProductHomeContainer({ products }) {
   const filterProducts = value =>
     _.filter(products, ({ category }) => value === category);
 
@@ -24,4 +24,4 @@ export const ProductHomeContainer = ({ products }) => {
       </ProductList>
     ));
   return renderProductList();
-};
+}

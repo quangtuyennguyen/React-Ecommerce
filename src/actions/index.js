@@ -274,9 +274,8 @@ export const hideLoading = () => {
 
 export const toggleLoading = (timeout, callback) => async dispatch => {
   dispatch(showLoading());
-  console.log(timeout, callback);
   setTimeout(() => {
     dispatch(hideLoading());
-    callback();
+    callback && callback();
   }, timeout);
 };

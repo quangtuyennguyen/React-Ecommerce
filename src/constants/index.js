@@ -117,6 +117,39 @@ export const CATEGORIES = [
   },
 ];
 
+export const BRANDS = [
+  {
+    title: 'Brand photo 1',
+    image:
+      'https://res.cloudinary.com/shopping-assets/image/upload/v1584334485/sponsors_white_1_qcj0zs.png',
+  },
+  {
+    title: 'Brand photo 2',
+    image:
+      'https://res.cloudinary.com/shopping-assets/image/upload/v1584334485/sponsors_white_2_sggp3p.png',
+  },
+  {
+    title: 'Brand photo 3',
+    image:
+      'https://res.cloudinary.com/shopping-assets/image/upload/v1584334485/sponsors_white_3_tmoqqr.png',
+  },
+  {
+    title: 'Brand photo 4',
+    image:
+      'https://res.cloudinary.com/shopping-assets/image/upload/v1584334485/sponsors_white_1_qcj0zs.png',
+  },
+  {
+    title: 'Brand photo 5',
+    image:
+      'https://res.cloudinary.com/shopping-assets/image/upload/v1584334485/sponsors_white_5_ozkoxd.png',
+  },
+  {
+    title: 'Brand photo 6',
+    image:
+      'https://res.cloudinary.com/shopping-assets/image/upload/v1584334485/sponsors_white_6_rwshpw.png',
+  },
+];
+
 export const TIMER_VALUES = { main: 1000, sub: 1800 };
 
 export const USERNAME_DATA = [
@@ -455,27 +488,31 @@ const LISTS = [
   'Completely synergize resource taxing relationships',
 ];
 
-const Stats = () => (
-  <div className="content__stats">
-    {_.map(STATS, ({ number, text }) => (
-      <div key={number} className="content__stat">
-        <span className="content__stat-value">{number}</span>
-        <span className="content__stat-name">{text}</span>
-      </div>
-    ))}
-  </div>
-);
+function Stats() {
+  return (
+    <div className="content__stats">
+      {_.map(STATS, ({ number, text }) => (
+        <div key={number} className="content__stat">
+          <span className="content__stat-value">{number}</span>
+          <span className="content__stat-name">{text}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
-const Lists = () => (
-  <ul className="content__list">
-    {_.map(LISTS, item => (
-      <li key={item} className="content__item">
-        <i className="fas fa-check" />
-        {item}
-      </li>
-    ))}
-  </ul>
-);
+function Lists() {
+  return (
+    <ul className="content__list">
+      {_.map(LISTS, item => (
+        <li key={item} className="content__item">
+          <i className="fas fa-check" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export const ABOUT_LIST = [
   {
@@ -621,5 +658,33 @@ export const PRODUCT_BANNERS = [
     title: 'in Accessories at Best Prices.',
     image:
       'https://wp.xpeedstudio.com/marketo/wp-content/uploads/2018/07/laptop1-1.png',
+  },
+];
+
+export const progress = [
+  {
+    rating: 5,
+    strokeColor: '#42d697',
+    trailColor: '#f6f9fc',
+  },
+  {
+    rating: 4,
+    strokeColor: '#fe6975',
+    trailColor: '#f6f9fc',
+  },
+  {
+    rating: 3,
+    strokeColor: '#fed700',
+    trailColor: '#f6f9fc',
+  },
+  {
+    rating: 2,
+    strokeColor: '#83b735',
+    trailColor: '#f6f9fc',
+  },
+  {
+    rating: 1,
+    strokeColor: '#fea569',
+    trailColor: '#f6f9fc',
   },
 ];

@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { hideModal, showModal } from '../../actions';
 import Loading from '../../assets/images/loading-auth.gif';
 import { auth, signInWithGoggle } from '../../services/firebase';
-import { useEscKeydown } from '../../utils/useEscKeydown';
+import useEscKeydown from '../../utils/useEscKeydown';
 import ResetPassword from './ResetPassword';
 import SignUp from './SignUp';
 
@@ -127,7 +127,7 @@ function SignIn({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.email && (
+                  {touched.email && errors.email && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"
@@ -149,7 +149,7 @@ function SignIn({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.password && (
+                  {touched.password && errors.password && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"

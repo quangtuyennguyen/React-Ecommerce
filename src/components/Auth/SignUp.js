@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 import Loading from '../../assets/images/loading-auth.gif';
 import { auth, generateUserDocument } from '../../services/firebase';
-import { useEscKeydown } from '../../utils/useEscKeydown';
+import useEscKeydown from '../../utils/useEscKeydown';
 import SignIn from './SignIn';
 
 SignUp.propTypes = {
@@ -98,7 +98,7 @@ function SignUp({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.displayName && (
+                  {touched.displayName && errors.displayName && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"
@@ -120,7 +120,7 @@ function SignUp({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.email && (
+                  {touched.email && errors.email && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"
@@ -142,7 +142,7 @@ function SignUp({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.password && (
+                  {touched.password && errors.password && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"

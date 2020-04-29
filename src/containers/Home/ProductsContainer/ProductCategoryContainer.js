@@ -2,8 +2,8 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import ProductItem from '../../../components/Products/ProductsCategories/ProductItem/ProductItem';
-import { ProductList } from '../../../components/Products/ProductsCategories/ProductList/ProductList';
+import ProductItem from '../../../components/Products/ProductsCategories/ProductItem';
+import ProductList from '../../../components/Products/ProductsCategories/ProductList';
 import { renderProducts } from '../../../utils';
 
 ProductCategoryContainar.propTypes = {
@@ -14,7 +14,7 @@ ProductCategoryContainar.defaultProps = {
   products: [],
 };
 
-export const ProductCategoryContainar = ({ products }) => {
+export default function ProductCategoryContainar({ products }) {
   const [currentTab, setCurrentTab] = useState({ tab: 'Mobile', tabIndex: 0 });
   const changeTab = (tab, index) => setCurrentTab({ tab, tabIndex: index });
 
@@ -27,4 +27,4 @@ export const ProductCategoryContainar = ({ products }) => {
       {renderProducts(filterProducts().slice(0, 12), ProductItem)}
     </ProductList>
   );
-};
+}

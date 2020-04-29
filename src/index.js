@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App';
-import { Root } from './Root';
+import App from './components/App';
+import Root from './Root';
 
 // Import Css
 import './assets/css/vendor/all.css';

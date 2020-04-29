@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 SampleNextArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 SamplePrevArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 function SampleNextArrow({ onClick }) {

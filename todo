@@ -4,6 +4,12 @@
 => fix post, product propType when it undefined
 => scrool check 
 => commentItem format time
+=> available product
+=> fix show error select
+=> {
+    product.id,
+    {...product}
+}
 
 => user name comment => done
 => fix first letter comment => done

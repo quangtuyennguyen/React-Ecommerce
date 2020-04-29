@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import { ProductItem } from '../../../components/Products/ProductsPopular/ProductItem/ProductItem';
-import { ProductList } from '../../../components/Products/ProductsPopular/ProductList/ProductList';
+import ProductItem from '../../../components/Products/ProductsPopular/ProductItem';
+import ProductList from '../../../components/Products/ProductsPopular/ProductList';
 import { renderProducts } from '../../../utils';
 
 ProductsPopularContainer.propTypes = {
@@ -13,7 +13,7 @@ ProductsPopularContainer.defaultProps = {
   products: [],
 };
 
-export const ProductsPopularContainer = ({ products }) => {
+export default function ProductsPopularContainer({ products }) {
   const [currentTab, setCurrentTab] = useState({ tabIndex: 0 });
   const { tabIndex } = currentTab;
   const productPerTab = 9;
@@ -26,4 +26,4 @@ export const ProductsPopularContainer = ({ products }) => {
       {renderProducts(products.slice(start, end), ProductItem)}
     </ProductList>
   );
-};
+}
