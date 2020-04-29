@@ -9,7 +9,8 @@ import './assets/css/styles.css';
 import './assets/js/scroll-event.js';
 
 ReactDOM.render(
-    <Root>
-        <App />
-    </Root>
-, document.getElementById('root'));
+  <Root>
+    <App />
+  </Root>,
+  document.getElementById('root'),
+);
