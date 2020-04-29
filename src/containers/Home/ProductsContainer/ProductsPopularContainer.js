@@ -1,19 +1,29 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+
 import { ProductItem } from '../../../components/Products/ProductsPopular/ProductItem/ProductItem';
 import { ProductList } from '../../../components/Products/ProductsPopular/ProductList/ProductList';
 import { renderProducts } from '../../../utils';
 
-export const ProductsPopularContainer = ({ products }) => {
-    const [currentTab, setCurrentTab] = useState({ tabIndex: 0 });
-    const { tabIndex } = currentTab;
-    const productPerTab = 9;
-    const start = tabIndex * productPerTab;
-    const end = start + productPerTab;
-    const changeTab = (tab, tabIndex) => setCurrentTab({ tabIndex  });
+ProductsPopularContainer.propTypes = {
+  products: PropTypes.array,
+};
 
-    return (
-        <ProductList tabIndex={tabIndex} changeTab={changeTab}>
-            {renderProducts(products.slice(start, end), ProductItem)}
-        </ProductList>
-    );
+ProductsPopularContainer.defaultProps = {
+  products: [],
+};
+
+export const ProductsPopularContainer = ({ products }) => {
+  const [currentTab, setCurrentTab] = useState({ tabIndex: 0 });
+  const { tabIndex } = currentTab;
+  const productPerTab = 9;
+  const start = tabIndex * productPerTab;
+  const end = start + productPerTab;
+  const changeTab = (tab, tabIndex) => setCurrentTab({ tabIndex });
+
+  return (
+    <ProductList tabIndex={tabIndex} changeTab={changeTab}>
+      {renderProducts(products.slice(start, end), ProductItem)}
+    </ProductList>
+  );
 };

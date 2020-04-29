@@ -1,5 +1,9 @@
 => convension react provider by airbnb
 => consider use query-string
+=> check category when more and less
+=> fix post, product propType when it undefined
+=> scrool check 
+=> commentItem format time
 
 => user name comment => done
 => fix first letter comment => done

@@ -1,60 +1,75 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+SampleNextArrow.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+SamplePrevArrow.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 function SampleNextArrow({ onClick }) {
-    return (
-        <button onClick={onClick} className="control-arrow control-next"></button>
-    );
-};
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="control-arrow control-next"
+    />
+  );
+}
 
 function SamplePrevArrow({ onClick }) {
-    return (
-        <button onClick={onClick} className="control-arrow control-prev"></button>
-    );
-};
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="control-arrow control-prev"
+    />
+  );
+}
 
 export const oneSidePerRowSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
 };
 
 export const twoSidePerRowSettings = {
-    ...oneSidePerRowSettings,
-    slidesToShow: 2,
-    dots: false,
-    centerPadding: '10rem',
-    responsive: [
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-    ]
+  ...oneSidePerRowSettings,
+  slidesToShow: 2,
+  dots: false,
+  centerPadding: '10rem',
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
 };
 
 export const threeSidePerRowSettings = {
-    ...twoSidePerRowSettings,
-    slidesToShow: 3,
-    responsive: [
-        ...twoSidePerRowSettings.responsive,
-    ]
+  ...twoSidePerRowSettings,
+  slidesToShow: 3,
+  responsive: [...twoSidePerRowSettings.responsive],
 };
 
 export const responsiveSettings = {
-    ...threeSidePerRowSettings,
-    slidesToShow: 4,
-    responsive: [
-        {
-            breakpoint: 900,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        ...threeSidePerRowSettings.responsive
-    ]
+  ...threeSidePerRowSettings,
+  slidesToShow: 4,
+  responsive: [
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    ...threeSidePerRowSettings.responsive,
+  ],
 };
