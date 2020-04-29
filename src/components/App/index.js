@@ -63,8 +63,7 @@ function App({
         fetchUserInfo(user);
         hideModal();
       } else {
-        console.log('You signin yet, Please signin now');
-        // handle show modal sign in
+        // Here can handle show modal sign in
       }
     });
   }, [fetchUserInfo, hideModal]);

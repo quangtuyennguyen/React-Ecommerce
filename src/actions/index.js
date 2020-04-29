@@ -29,7 +29,6 @@ export const fetchProducts = callback => async dispatch => {
     fetchDataRequest(productsRef, types.FETCH_PRODUCTS, dispatch);
     callback();
   } catch (error) {
-    console.log('Error when fetch products');
     dispatch(showLoading());
     dispatch({
       type: types.FETCH_PRODUCTS_FAILD,
