@@ -46,13 +46,11 @@ export default function PostSlideItem({
       </Link>
       <div className="post__details">
         <Link to={`/blog/${slug(title.toLowerCase())}.${id}`}>
-          <h3 className="post__title post__title--big">
-            {title}
-            <span className="post__comment-amount">
-              <i className="far fa-comment-dots" />
-              {commentQuantity ? commentQuantity : null}
-            </span>
-          </h3>
+          <h3 className="post__title post__title--big">{title}</h3>
+          <span className="post__comment-amount">
+            <i className="far fa-comment-dots" />
+            {commentQuantity ? commentQuantity : null}
+          </span>
         </Link>
         <div className="post__info">
           <div className="post__author">

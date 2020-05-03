@@ -121,7 +121,7 @@ function ProductItem({
                     title,
                     category,
                   }}
-                  modal
+                  isModal
                 />,
               )
             }

@@ -7,14 +7,14 @@ import { toast } from 'react-toastify';
 
 import * as actions from '../../../actions';
 import Loading from '../../../assets/images/loading-search.gif';
-import CartSideBar from '../../Sidebars/CartSideBar';
 import { CATEGORIES, LINKS, TIMER_VALUES } from '../../../constants';
 import { auth } from '../../../services/firebase';
 import { countTotalPrice, formatter } from '../../../utils';
+import useClickOutside from '../../../utils/useClickOutside';
 import useEscKeydown from '../../../utils/useEscKeydown';
-import useOutsideClick from '../../../utils/useOutsideClick';
 import SignIn from '../../Auth/SignIn';
 import SearchList from '../../SearchList';
+import CartSideBar from '../../Sidebars/CartSideBar';
 import NavMobileSideBar from '../../Sidebars/MobileSidebar';
 
 Navbar.propTypes = {
@@ -39,7 +39,8 @@ function Navbar({
 }) {
   const searchBoxRef = useRef();
   const searchWrapper = useRef();
-  const demoRef = useRef();
+  const navBarRef = useRef();
+  const searchIconRef = useRef();
   const inputRef = useRef();
   const [expandMenu, setExpandMenu] = useState(false);
   const [showResult, setShowResult] = useState(false);
@@ -116,14 +117,16 @@ function Navbar({
   const handleShowModal = () => {
     if (displayName) {
       auth.signOut();
-      window.location.reload();
-      toast.success('You have sign out successful');
+      toast.success('One moment please...', {
+        onClose: () => window.location.reload(),
+        autoClose: 1500,
+      });
     } else {
       showModal(<SignIn />);
     }
   };
 
-  useOutsideClick(searchBoxRef, searchWrapper, () => {
+  useClickOutside(searchBoxRef, searchWrapper, () => {
     setShowResult(false);
   });
 
@@ -132,19 +135,27 @@ function Navbar({
     setIsOpenSearchMobile(false);
   });
 
+  const handelSubmit = event => {
+    event.preventDefault();
+  };
+
+  const toggleSearchIcon = () => {
+    setIsOpenSearchMobile(!isOpenSearchMobile);
+  };
+
   useEffect(() => {
     if (inputRef && inputRef.current) {
       inputRef.current.focus();
     }
   }, []);
 
-  const demo = () => {
-    setIsOpenSearchMobile(!isOpenSearchMobile);
-  };
-
   return (
     <Fragment>
-      <div className="navbar navbar--desktop" id="navbarDesktop">
+      <div
+        ref={navBarRef}
+        className="navbar navbar--desktop"
+        id="navbarDesktop"
+      >
         <div className="action-bar">
           <div className="row u-padding-top-small u-padding-bottom-small">
             <div className="col span_1_of_8">
@@ -164,7 +175,7 @@ function Navbar({
                 className="col span_5_of_8"
                 style={{ position: 'relative' }}
               >
-                <form className="form" method="dialog">
+                <form className="form" onSubmit={handelSubmit}>
                   <input
                     onChange={handleSearchProduct}
                     className="form__input"
@@ -201,7 +212,7 @@ function Navbar({
                       onClick={() => setExpandMenu(!expandMenu)}
                       className={`${
                         expandMenu
-                          ? 'far fa-times-circle u-suggest'
+                          ? 'far fa-times-circle u-d-none u-suggest'
                           : 'fas fa-bars u-d-none u-suggest'
                       }`}
                     />
@@ -302,9 +313,16 @@ function Navbar({
           </div>
           <div className="col span_1_of_3">
             <div className="box-icons">
+              <Link to="/wishlist">
+                <i
+                  style={{ fontSize: '2rem', margin: '0 0.8rem' }}
+                  className="far fa-heart"
+                />
+              </Link>
               <i
-                ref={demoRef}
-                onClick={() => demo()}
+                style={{ fontSize: '2rem' }}
+                ref={searchIconRef}
+                onClick={() => toggleSearchIcon()}
                 className={`${
                   isOpenSearchMobile
                     ? 'fas fa-search-minus'
@@ -322,10 +340,10 @@ function Navbar({
             </div>
           </div>
         </div>
-        <div className="row u-padding">
+        <div className="row u-padding-none">
           {window.innerWidth <= 900 && isOpenSearchMobile && (
             <div ref={searchWrapper} className="box-search" id="searchWrapper">
-              <form className="form" method="dialog">
+              <form className="form" onSubmit={handelSubmit}>
                 <input
                   onChange={handleSearchProduct}
                   className="form__input"

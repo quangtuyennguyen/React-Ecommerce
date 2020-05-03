@@ -12,9 +12,9 @@ export default function useEscKeydown(callback) {
 
   useEffect(() => {
     if (callback) {
-      document.addEventListener('keydown', escFunction, false);
+      document.addEventListener('keydown', escFunction);
       return () => {
-        document.removeEventListener('keydown', escFunction, false);
+        document.removeEventListener('keydown', escFunction);
       };
     }
   }, [callback, escFunction]);

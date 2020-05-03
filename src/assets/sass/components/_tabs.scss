@@ -1,64 +1,65 @@
 .tab {
-    &__item {
-        display: inline-block;
-        &:not(:first-child) {
-            padding-left: 2rem;
-        }
-
-        @include respond(phone-to-tab-port) {
-            padding-left: 1rem;
-        }
-
-        @include respond(phone) {
-            &:not(:first-child) {
-                padding-left: 1.2rem;
-            }
-        }
+  &__item {
+    display: inline-block;
+    &:not(:first-child) {
+      padding-left: 2rem;
     }
 
-    &__link {
-        font-size: 1.8rem;
-        padding-bottom: 1.6rem;
-        color: $color-grey-light-5;
-        position: relative;
-        cursor: pointer;
-
-        @include respond(phone) {
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-        &--active {
-            color: $color-grey-dark-4;
-        }
-
-        &--active:after {
-            content: "";
-            position: absolute;
-            top: 3.8rem;
-            left: 50%;
-            width: 4rem;
-            height: 0.3rem;
-            @include transform(translateX(-50%));
-            background-color: $color-primary;
-            @include respond(phone) {
-                top: 2.8rem;
-            }
-
-        }
-
-        &--active:before {
-            content: "";
-            position: absolute;
-            top: 4rem;
-            left: 50%;
-            border-top: 0.8rem solid $color-primary;
-            border-left: 0.8rem solid transparent !important;
-            border-right: 0.8rem solid transparent !important;
-            border-bottom: 0.8rem solid transparent !important;
-            transform: translateX(-50%);
-            @include respond(phone) {
-                top: 3rem;
-            }
-        }
+    @include respond(phone-to-tab-port) {
+      &:not(:first-child) {
+        padding-left: 1rem;
+      }
     }
+
+    @include respond(phone) {
+      &:not(:first-child) {
+        padding-left: 1.2rem;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 1.8rem;
+    padding-bottom: 1.6rem;
+    color: $color-grey-light-5;
+    position: relative;
+    cursor: pointer;
+
+    @include respond(phone) {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+    &--active {
+      color: $color-grey-dark-4;
+    }
+
+    &--active:after {
+      content: '';
+      position: absolute;
+      top: 3.8rem;
+      left: 50%;
+      width: 4rem;
+      height: 0.3rem;
+      @include transform(translateX(-50%));
+      background-color: $color-primary;
+      @include respond(phone) {
+        top: 2.8rem;
+      }
+    }
+
+    &--active:before {
+      content: '';
+      position: absolute;
+      top: 4rem;
+      left: 50%;
+      border-top: 0.8rem solid $color-primary;
+      border-left: 0.8rem solid transparent !important;
+      border-right: 0.8rem solid transparent !important;
+      border-bottom: 0.8rem solid transparent !important;
+      transform: translateX(-50%);
+      @include respond(phone) {
+        top: 3rem;
+      }
+    }
+  }
 }

@@ -66,7 +66,7 @@ function CommentList({
     <div className="tab__reviews moveToTop">
       {filterComments.length ? (
         <div className="wrapper-stats u-border-small u-padding-bottom-medium">
-          <div className="row">
+          <div className="row u-padding-none">
             <div className="col span_1_of_3">
               <div className="comment__stats">
                 <h3 className="comment__title">
@@ -101,8 +101,9 @@ function CommentList({
           </div>
         </div>
       ) : null}
-      <div className="wrapper-comment u-padding-top-small">
-        <div className="row">
+      <div className="wrapper-comment">
+        <SortComment sortComments={sortCommentsAction} />
+        <div className="row u-padding-none">
           <div className="col span_3_of_5">
             <div className="comment-box">
               {renderCommentItem()}
@@ -128,7 +129,6 @@ function CommentList({
             </div>
           </div>
           <div className="col span_2_of_5">
-            <SortComment sortComments={sortCommentsAction} />
             <PostComment
               toggleLoading={toggleLoading}
               addProductCommentRequest={addProductCommentRequest}

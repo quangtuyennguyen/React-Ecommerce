@@ -33,8 +33,9 @@ export default function Tab({ tabs, heading, padding, tabIndex, changeTab }) {
 
   return (
     <div
-      className={`${padding ? 'row' : 'row-fluid'} u-underline ${padding &&
-        'u-margin-top-medium'}`}
+      className={`${padding ? 'row' : 'row-fluid'} u-underline${
+        padding ? ' u-margin-top-medium' : ''
+      }`}
     >
       {heading ? (
         <div className="col span_1_of_2">

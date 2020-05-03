@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Button from '../../components/Button/Button';
 
 LayOut.propTypes = {
   children: PropTypes.element.isRequired,
@@ -14,13 +15,7 @@ export default function LayOut({ children, name }) {
   return (
     <div className={name}>
       {children}
-      <button
-        type="button"
-        className="btn-scroll-top u-center-text u-suggest"
-        id="scrollToTop"
-      >
-        &#8593;
-      </button>
+      <Button />
     </div>
   );
 }

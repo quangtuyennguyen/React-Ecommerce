@@ -1,8 +1,11 @@
 import React from 'react';
 
 export default function ContactForm() {
+  const handelSubmit = event => {
+    event.preventDefault();
+  };
   return (
-    <form className="form" method="dialog">
+    <form className="form" onSubmit={handelSubmit}>
       <div className="u-d-flex-start">
         <div className="form__group">
           <label htmlFor="name">Name</label>

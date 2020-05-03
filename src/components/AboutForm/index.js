@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default function AboutForm() {
+  const handelSubmit = event => {
+    event.preventDefault();
+  };
   return (
     <section id="section-contact">
       <div className="row">
@@ -21,7 +24,7 @@ export default function AboutForm() {
           </div>
         </div>
         <div className="col span_1_of_2">
-          <form className="form u-d-flex-center" method="dialog">
+          <form className="form u-d-flex-center" onSubmit={handelSubmit}>
             <input
               className="form__input"
               type="email"

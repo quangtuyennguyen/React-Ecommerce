@@ -120,7 +120,7 @@ function SignUp({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.email && errors.email && (
+                  {((touched.email && errors.email) || errEmail) && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"

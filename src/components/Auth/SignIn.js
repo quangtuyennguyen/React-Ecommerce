@@ -127,7 +127,7 @@ function SignIn({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.email && errors.email && (
+                  {((touched.email && errors.email) || errEmail) && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"
@@ -149,7 +149,7 @@ function SignIn({ hideModal, showModal }) {
                       />
                     )}
                   </Field>
-                  {touched.password && errors.password && (
+                  {((touched.password && errors.password) || errPassword) && (
                     <span
                       style={{ marginTop: '1rem' }}
                       className="form__text-error"
@@ -172,7 +172,7 @@ function SignIn({ hideModal, showModal }) {
                     </label>
                   </div>
                   <div className="form__text form__text--right">
-                    <span onClick={handleResetPassword}>Forgot password ?</span>
+                    <span onClick={handleResetPassword}>Forgot password?</span>
                   </div>
                 </div>
                 <div className="btn-group u-d-flex-center-left">

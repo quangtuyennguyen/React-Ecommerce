@@ -2,10 +2,12 @@ import { Field, Form, Formik } from 'formik';
 import md5 from 'md5';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { TIMER_VALUES } from '../../constants';
 import { adminAccRef } from '../../services/firebase';
 import { findAccount } from '../../utils';
+
+import './style.css';
 
 AdminAuth.propTypes = {
   adminAuth: PropTypes.func.isRequired,
@@ -14,6 +16,7 @@ AdminAuth.propTypes = {
 
 function AdminAuth({ adminAuth: adminAuthAction, toggleLoading }) {
   const [account, setAccount] = useState([]);
+
   const history = useHistory();
 
   const validate = ({ email: emailCurrent, password: passwordCurrent }) => {
@@ -92,10 +95,13 @@ function AdminAuth({ adminAuth: adminAuthAction, toggleLoading }) {
           {touched.password && errors.password && (
             <span className="form__text-error">{errors.password}</span>
           )}
-          <div>
-            <button type="submit" className="btn btn--secondary">
-              Sign in
-            </button>
+          <button type="submit" className="btn btn--secondary">
+            Sign in
+          </button>
+          <div className="btn-text-box">
+            <Link to="/" className="btn btn--text">
+              &#8592; Back to homepage
+            </Link>
           </div>
         </Form>
       )}

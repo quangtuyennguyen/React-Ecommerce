@@ -69,6 +69,7 @@ function ResetPassword({ hideModal, showModal }) {
               />
             </div>
             <button
+              style={{ marginBottom: '0' }}
               type="submit"
               className="btn modal-auth__btn btn--secondary"
             >
@@ -77,11 +78,8 @@ function ResetPassword({ hideModal, showModal }) {
           </form>
         </div>
         <div className="modal-auth__footer">
-          <span
-            className="modal-auth__footer-text"
-            onClick={() => showModal(<SignIn />)}
-          >
-            Back to signin
+          <span className="btn btn--text" onClick={() => showModal(<SignIn />)}>
+            &#8592; Back to sign in
           </span>
         </div>
       </div>

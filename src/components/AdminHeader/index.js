@@ -63,6 +63,10 @@ export default function AdminHeader({
       />
     ));
 
+  const handelSubmit = event => {
+    event.preventDefault();
+  };
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -83,8 +87,11 @@ export default function AdminHeader({
           Add product
         </button>
       </div>
-      <div className="col span_1_of_4" style={{ float: 'right' }}>
-        <form className="form" method="dialog">
+      <div
+        className="col span_1_of_4"
+        style={{ float: 'right', marginLeft: 'auto' }}
+      >
+        <form className="form" onSubmit={handelSubmit}>
           <input
             ref={inputRef}
             onKeyUp={onKeyUp}

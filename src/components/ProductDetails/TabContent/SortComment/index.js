@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 
 import { SORT_COMMENT as SORTS } from '../../../../constants';
 import useEscKeydown from '../../../../utils/useEscKeydown';
-import useOutsideClick from '../../../../utils/useOutsideClick';
+import useClickOutside from '../../../../utils/useClickOutside';
 
 SortComment.propTypes = {
   sortComments: PropTypes.func.isRequired,
@@ -33,30 +33,32 @@ export default function SortComment({ sortComments }) {
       </button>
     ));
 
-  useOutsideClick(refMain, refSub, () => setIsOpen(false));
+  useClickOutside(refMain, refSub, () => setIsOpen(false));
   useEscKeydown(() => {
     // handle close press the key escape
     setIsOpen(false);
   });
 
   return (
-    <div className="box-sort u-margin-bottom-small">
-      <div className="sort">
-        <span className="sort__text">Sort by:</span>
-        <div className="sort__wrap">
-          <button
-            type="button"
-            ref={refSub}
-            onClick={() => setIsOpen(!isOpen)}
-            className="sort__heading"
-          >
-            {sortName}
-          </button>
-          {isOpen && (
-            <div ref={refMain} className="sort__box">
-              {renderSort()}
-            </div>
-          )}
+    <div className="row u-padding-none">
+      <div className="box-sort">
+        <div className="sort">
+          <span className="sort__text">Sort by:</span>
+          <div className="sort__wrap">
+            <button
+              type="button"
+              ref={refSub}
+              onClick={() => setIsOpen(!isOpen)}
+              className="sort__heading"
+            >
+              {sortName}
+            </button>
+            {isOpen && (
+              <div ref={refMain} className="sort__box">
+                {renderSort()}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

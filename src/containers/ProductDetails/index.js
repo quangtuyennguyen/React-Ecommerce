@@ -39,7 +39,12 @@ function ProductDetailsContainer({ products }) {
       <ProductDetails category={categoryCurrent}>
         <ProductView productCurrent={productCurrent} />
       </ProductDetails>
-      <ProductRelated otherProducts={otherProducts} variant="section-related" />
+      <ProductRelated
+        otherProducts={[
+          ..._.filter(otherProducts, ({ id: productId }) => productId !== id),
+        ]}
+        variant="section-related"
+      />
     </Fragment>
   ) : null;
 }

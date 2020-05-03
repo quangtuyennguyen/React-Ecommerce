@@ -1,84 +1,83 @@
 .pagination {
-    padding-top: 4rem !important;
+  padding-top: 4rem !important;
 
-    @include respond(phone) {
-        @include dFlex(space-between);
-        border: none;
+  @include respond(phone) {
+    @include dFlex(space-between);
+    border: none;
+  }
+
+  &__control {
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: $color-grey-dark-4;
+
+    &--next {
+      float: right;
     }
 
-    &__control {
-        cursor: pointer;
-        font-size: 1.8rem;
-        color: $color-grey-dark-4;
-
-        &--next {
-            float: right;
-        }
-
-        .fa-angle-left {
-            padding-right: 0.6rem;
-        }
-
-        .fa-angle-right {
-            padding-left: 0.6rem;
-        }
-
-        .fas {
-            font-size: 1.3rem;
-            padding: 0 0.5rem;
-        }
-
-        .pagination__btn {
-            padding: 0.8rem 4rem !important;
-            @include dFlex(center);
-            background-color: #f8f8f8;
-            color: #5e677b;
-            &:hover {
-                background-color: #ececec;
-            }
-        }
+    .fa-angle-left {
+      padding-right: 0.6rem;
     }
 
-    &__list {
-        @include dFlex(center);
-        position: relative;
-        z-index: 10;
-
-        button {
-            background-color: transparent;
-        }
-        span {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: $color-grey-dark-2;
-        }
+    .fa-angle-right {
+      padding-left: 0.6rem;
     }
 
-    &__btn {
-        font-size: 1.6rem;
-        width: 3.6rem;
-        display: inline-block;
-        height: 3.6rem;
-        margin: 0 0.2em;
-        line-height: 2rem;
-        text-align: center;
-        color: $color-grey-dark-4;
-        border-radius: 0.3rem;
-        cursor: pointer;
-
-        &--active {
-            color: $color-white !important;
-            background-color: $color-secondary !important;
-            box-shadow: 0 0.5rem 1.125rem -0.425rem rgba(105, 115, 254, 0.9) !important;
-        }
-
-        &:hover {
-            background-color: $color-grey-light-1;
-        }
-
-        &:disabled {
-            cursor: not-allowed;
-        }
-
+    .fas {
+      font-size: 1.3rem;
+      padding: 0 0.5rem;
     }
+
+    .pagination__btn {
+      padding: 0.8rem 4rem;
+      @include dFlex(center);
+      background-color: #f8f8f8;
+      color: #5e677b;
+      &:hover {
+        background-color: #ececec;
+      }
+    }
+  }
+
+  &__list {
+    @include dFlex(center);
+    position: relative;
+    z-index: 10;
+
+    button {
+      background-color: transparent;
+    }
+    span {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__btn {
+    font-size: 1.6rem;
+    width: 3.6rem;
+    display: inline-block;
+    height: 3.6rem;
+    margin: 0 0.2em;
+    line-height: 2rem;
+    text-align: center;
+    color: $color-grey-dark-4;
+    border-radius: 0.3rem;
+    cursor: pointer;
+
+    &--active {
+      color: $color-white !important;
+      background-color: $color-secondary !important;
+      box-shadow: 0 0.5rem 1.125rem -0.425rem rgba(105, 115, 254, 0.9) !important;
+    }
+
+    &:hover {
+      background-color: $color-grey-light-1;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
 }

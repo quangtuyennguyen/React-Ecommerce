@@ -22,10 +22,6 @@ export const LINKS = [
     path: '/contact',
     name: 'Contact',
   },
-  {
-    path: '/admin',
-    name: 'Admin',
-  },
 ];
 
 export const FILTER_BY_ICON = [

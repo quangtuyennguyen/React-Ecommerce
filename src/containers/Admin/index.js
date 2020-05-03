@@ -121,59 +121,61 @@ function Admin({
   }, [history, isAdminAuth]);
 
   return (
-    <Fragment>
-      <section
-        id="section-admin"
-        className="u-margin-top-medium u-margin-bottom-big"
-      >
-        <AdminHeader
-          categoryCurrent={categoryCurrent}
-          handleFilterByCategory={handleFilterByCategory}
-          handleSearchProduct={handleSearchProduct}
-          clearProductEdit={clearProductEdit}
-          hadleShowModal={hadleShowModal}
-        />
-        <div className="row">
-          <table>
-            <thead>
-              {filterProducts().length ? (
-                <tr>
-                  <th style={{ width: '12.5%' }}>
-                    <h4 className="table-admin__heading table-admin__heading--main">
-                      Image
-                    </h4>
-                  </th>
-                  <th style={{ width: '27.5%' }}>
-                    <h4 className="table-admin__heading table-admin__heading--main">
-                      Title
-                    </h4>
-                  </th>
-                  <th style={{ width: '40%' }}>
-                    <h4 className="table-admin__heading table-admin__heading--main">
-                      Details
-                    </h4>
-                  </th>
-                  <th style={{ width: '20%' }}>
-                    <h4 className="table-admin__heading table-admin__heading--main">
-                      Actions
-                    </h4>
-                  </th>
-                </tr>
-              ) : null}
-            </thead>
-            <tbody>{renderProducts()}</tbody>
-          </table>
-        </div>
-        {total > 1 && (
-          <Pagination
-            customClass="row pagination"
-            total={total}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
+    isAdminAuth && (
+      <Fragment>
+        <section
+          id="section-admin"
+          className="u-margin-top-medium u-margin-bottom-big"
+        >
+          <AdminHeader
+            categoryCurrent={categoryCurrent}
+            handleFilterByCategory={handleFilterByCategory}
+            handleSearchProduct={handleSearchProduct}
+            clearProductEdit={clearProductEdit}
+            hadleShowModal={hadleShowModal}
           />
-        )}
-      </section>
-    </Fragment>
+          <div className="row">
+            <table>
+              <thead>
+                {filterProducts().length ? (
+                  <tr>
+                    <th style={{ width: '12.5%' }}>
+                      <h4 className="table-admin__heading table-admin__heading--main">
+                        Image
+                      </h4>
+                    </th>
+                    <th style={{ width: '27.5%' }}>
+                      <h4 className="table-admin__heading table-admin__heading--main">
+                        Title
+                      </h4>
+                    </th>
+                    <th style={{ width: '40%' }}>
+                      <h4 className="table-admin__heading table-admin__heading--main">
+                        Details
+                      </h4>
+                    </th>
+                    <th style={{ width: '20%' }}>
+                      <h4 className="table-admin__heading table-admin__heading--main">
+                        Actions
+                      </h4>
+                    </th>
+                  </tr>
+                ) : null}
+              </thead>
+              <tbody>{renderProducts()}</tbody>
+            </table>
+          </div>
+          {total > 1 && (
+            <Pagination
+              customClass="row pagination"
+              total={total}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
+          )}
+        </section>
+      </Fragment>
+    )
   );
 }
 

@@ -20,7 +20,7 @@ import useEscKeydown from '../../utils/useEscKeydown';
 import CartSideBar from '../Sidebars/CartSideBar';
 
 ProductView.propTypes = {
-  modal: PropTypes.element,
+  isModal: PropTypes.bool,
   productCurrent: PropTypes.object,
   addToCart: PropTypes.func.isRequired,
   addToWishList: PropTypes.func.isRequired,
@@ -33,11 +33,11 @@ ProductView.propTypes = {
 ProductView.defaultProps = {
   productCurrent: {},
   comments: [],
-  modal: undefined,
+  isModal: undefined,
 };
 
 function ProductView({
-  modal,
+  isModal,
   productCurrent,
   addToCart,
   addToWishList,
@@ -67,7 +67,7 @@ function ProductView({
 
   const handleAddToCart = () => {
     const { quantity } = state;
-    if (modal) hideModal();
+    if (isModal) hideModal();
     toggleLoading(TIMER_VALUES.main, () => {
       addToCart({ ...productCurrent, quantity: parseInt(quantity) });
       showModal(<CartSideBar />);
@@ -108,7 +108,7 @@ function ProductView({
   return (
     <div className="product-details">
       <div className="product-details__content">
-        {modal && (
+        {isModal && (
           <div className="product-details__heading">
             <h5 className="product-details__title">
               <span>

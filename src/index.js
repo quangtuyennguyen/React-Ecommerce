@@ -6,7 +6,7 @@ import Root from './Root';
 // Import Css
 import './assets/css/vendor/all.css';
 import './assets/css/styles.css';
-import './assets/js/scroll-event.js';
+import './assets/js/theme';
 
 ReactDOM.render(
   <Root>

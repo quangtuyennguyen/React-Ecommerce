@@ -3,20 +3,21 @@ import _ from 'lodash';
 import React, { useRef, useState } from 'react';
 
 import useEscKeydown from '../../../utils/useEscKeydown';
-import useOutsideClick from '../../../utils/useOutsideClick';
+import useClickOutside from '../../../utils/useClickOutside';
 
 export default () => {
+  const refSub = useRef();
+  const refMain = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [indexCurrent, setIndexCurrent] = useState(0);
+
   const contents = [
     'Free shipping for order over $200',
     'We return money within 30 days',
     'Friendly 24/7 customer support',
   ];
-  const refSub = useRef();
-  const refMain = useRef();
 
-  useOutsideClick(refMain, refSub, () => setIsOpen(false)); // handle click outside
+  useClickOutside(refMain, refSub, () => setIsOpen(false)); // handle click outside
   useEscKeydown(() => {
     // handle close press the key escape
     setIsOpen(false);

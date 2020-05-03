@@ -36,7 +36,6 @@ export default function ProductList({ children, changeTab, tabIndex }) {
           <Tab
             changeTab={changeTab}
             row="row-fluid"
-            heading={null}
             tabs={TAB_POPULAR}
             tabIndex={tabIndex}
           />

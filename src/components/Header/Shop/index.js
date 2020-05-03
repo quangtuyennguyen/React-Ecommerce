@@ -8,7 +8,7 @@ import { SORT_PRODUCT as SORTS } from '../../../constants';
 import ShopGrid from '../../../containers/Shop/ShopGrid';
 import ShopList from '../../../containers/Shop/ShopList';
 import useEscKeydown from '../../../utils/useEscKeydown';
-import useOutsideClick from '../../../utils/useOutsideClick';
+import useClickOutside from '../../../utils/useClickOutside';
 
 ShopHeader.propTypes = {
   setLayout: PropTypes.func.isRequired,
@@ -54,7 +54,7 @@ export default function ShopHeader({
       </button>
     ));
 
-  useOutsideClick(sortRef, buttonRef, () => setIsOpen(false)); // handle close click outside
+  useClickOutside(sortRef, buttonRef, () => setIsOpen(false)); // handle close click outside
   useEscKeydown(() => {
     // handle close press the key escape
     setIsOpen(false);
