@@ -44,6 +44,7 @@ function SignUp({ hideModal, showModal }) {
       generateUserDocument({ ...userResponse, displayName });
       toast.success('You have signed up successfully');
     } catch (error) {
+      console.log(error);
       if (error.code.includes('already')) {
         setErrEmail('Email address already exists');
         setTimeout(() => {

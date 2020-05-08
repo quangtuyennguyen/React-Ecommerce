@@ -31,6 +31,7 @@ function ResetPassword({ hideModal, showModal }) {
         setEmailHasBeenSent(false);
       }, 3000);
     } catch (error) {
+      console.log(error);
       setError('Error resetting password');
     }
   };

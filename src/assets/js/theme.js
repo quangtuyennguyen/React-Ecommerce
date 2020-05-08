@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbarDesktop');
   const bodyTag = document.getElementsByTagName('body')[0];
   let statusScroll = true;
-  console.log(window.innerWidth > 1140);
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 200 && statusScroll && window.innerWidth > 1140) {
       backToTop.classList.add('show');

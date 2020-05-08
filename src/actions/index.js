@@ -43,6 +43,7 @@ export const editProductRequest = product => async () => {
   try {
     updateItem(product, key, productsRef);
   } catch (error) {
+    console.log(error);
     // handle when update faild
   }
 };
@@ -51,6 +52,7 @@ export const addProductRequest = product => async () => {
   try {
     pushItem(product, productsRef);
   } catch (error) {
+    console.log(error);
     // handle when update faild
   }
 };
@@ -60,6 +62,7 @@ export const removeProductRequest = id => async () => {
   try {
     removeItem(key, productsRef);
   } catch (error) {
+    console.log(error);
     // handle when update faild
   }
 };
@@ -81,6 +84,7 @@ export const addProductCommentRequest = comment => async () => {
   try {
     pushItem(comment, productCommentsRef);
   } catch (error) {
+    console.log(error);
     // handle add comment faild
   }
 };
@@ -105,6 +109,7 @@ export const fetchPosts = callback => async dispatch => {
     fetchDataRequest(postsRef, types.FETCH_POSTS, dispatch);
     callback();
   } catch (error) {
+    console.log(error);
     dispatch({ type: types.FETCH_POSTS_FAILD, payload: 'Fetch posts faild' });
   }
 };
@@ -115,6 +120,7 @@ export const fetchPostComments = callback => async dispatch => {
     fetchDataRequest(postCommentsRef, types.FETCH_POST_COMMENTS, dispatch);
     callback();
   } catch (error) {
+    console.log(error);
     dispatch({
       type: types.FETCH_POST_COMMENTS_FAILD,
       payload: 'Fetch comment posts faild',
@@ -127,6 +133,7 @@ export const addPostCommentRequest = (comment, callback) => async () => {
     pushItem(comment, postCommentsRef);
     callback();
   } catch (error) {
+    console.log(error);
     // handle add comment faild
   }
 };
@@ -138,6 +145,7 @@ export const addReplyRequest = (comment, commentId, callback) => async () => {
     pushItem(comment, replysRef);
     callback();
   } catch (error) {
+    console.log(error);
     // handle add comment faild
   }
 };
