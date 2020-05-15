@@ -1,6 +1,6 @@
 This project was created with the [Create React App](https://github.com/facebook/create-react-app).
 
-# Building CRUD Web Application using React-Redux-Firebase
+# Building an Ecommerce Web Application using React-Redux-Firebase
 
 To run this app:
 
