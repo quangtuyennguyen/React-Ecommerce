@@ -1,14 +1,11 @@
 import * as firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAoBct8xi5_V5vc5AxX0zZnGvfcls1BWGM',
-  authDomain: 'shopping-f1123.firebaseapp.com',
-  databaseURL: 'https://shopping-f1123.firebaseio.com',
-  projectId: 'shopping-f1123',
-  storageBucket: 'shopping-f1123.appspot.com',
-  messagingSenderId: '261927494560',
-  appId: '1:261927494560:web:735a0f7d05adbbc0b33ac5',
-  measurementId: 'G-34J88KHDN2',
+  /* 
+  1: Create a firebase project and put your fibaseConfig here 
+  2: import db.json file to your Realtime database
+  All Done!
+  */
 };
 
 // Initialize Firebase
@@ -62,7 +59,6 @@ const getUserDocument = async uid => {
   try {
     const userDocument = await firestore.doc(`users/${uid}`).get();
     return {
-      uid,
       ...userDocument.data(),
     };
   } catch (error) {

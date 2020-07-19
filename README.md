@@ -4,10 +4,10 @@ This project was created with the [Create React App](https://github.com/facebook
 
 To run this app:
 
-* Clone this repo
-* Run `npm install`
-* Run `npm start`
-* Run `npm run build`
+- Clone this repo
+- Run `npm install`
+- Run `npm start`
+- Run `npm run build`
 
 ### Author
 

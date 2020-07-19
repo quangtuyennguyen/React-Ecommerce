@@ -23,6 +23,7 @@ function Modal({ modal: { isOpen, component } }) {
       body.removeChild(elm);
     };
   }, [elm]);
+
   return ReactDOM.createPortal(
     // Any valid React child: JSX, strings, arrays, etc.
     isOpen ? component : null,

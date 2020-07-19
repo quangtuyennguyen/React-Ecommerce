@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import slug from 'slug';
 import * as actions from '../../../actions';
 import { countTotalPrice, formatter } from '../../../utils';
 import useEscKeydown from '../../../utils/useEscKeydown';
@@ -17,7 +17,11 @@ function CartSideBar({ hideModal }) {
   const renderProducts = () =>
     _.map(state, ({ id, title, images, price, quantity }) => (
       <li key={id} className="cart-sidebar__item">
-        <a href="/" className="cart-sidebar__link">
+        <Link
+          onClick={() => hideModal()}
+          to={`/product/${slug(title.toLowerCase())}.${id}`}
+          className="cart-sidebar__link"
+        >
           <div className="cart-sidebar__box-img">
             <img src={images[0]} alt={title} className="cart-sidebar__img" />
           </div>
@@ -27,7 +31,7 @@ function CartSideBar({ hideModal }) {
               <span>{formatter.format(price)} </span>x {quantity}
             </p>
           </div>
-        </a>
+        </Link>
       </li>
     ));
 
